@@ -1,3 +1,8 @@
+@font-face {
+    font-family: poiret;
+    src: url("../public/img/PoiretOne.ttf");
+}
+
 .hvr-sweep-to-right {
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
@@ -15,8 +20,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgb(138, 92, 39);
-    border-radius: 8px;
+    background: #1D704E;
+    border-radius: 12px;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -41,8 +46,8 @@ body {
     justify-content: center;
     margin: 30px;
     background-color: #e7e1d4;
-    background: linear-gradient(rgba(231,225,212,.9), rgba(231,225,212,.9)), url("../public/bgbg.jpg");
-    background-repeat: repeat-x;
+    /* background: linear-gradient(180deg, #58AC8A 0%, #A2E073 133.01%);     */
+    background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
 }
 
 .border {
@@ -51,7 +56,7 @@ body {
     justify-items: center;
     width: 95%;
     height: 89%;
-    border: solid 2px black;
+    /* border: solid 2px white; */
 }
 
 h1, .logo {
@@ -61,10 +66,11 @@ h1, .logo {
 }
 
 h1 {
-    font-family: fantasy;
-    color:black;
-    font-size: 30pt;
-    margin-bottom: 0;
+    font-family: poiret;
+    color:white;
+    font-size: 40pt;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .playbtn, a {
@@ -80,11 +86,12 @@ h1 {
     height: 30px;
     margin: 0 auto;
     border-radius: 10px;
-    border: 1px solid rgb(138, 92, 39);
-    color: rgb(138, 92, 39);
+    border: 1px solid white;
+    color: white;
     background: none;
     text-decoration: none;
-    font-family: fantasy;
+    font-family: poiret;
+    font-size: 12pt;
 }
 
 .gameplaydiv {
@@ -100,9 +107,10 @@ h1 {
     height: 30px;
     margin: 10px;
     border-radius: 10px;
-    border: 1px solid rgb(138, 92, 39);
-    color: rgb(138, 92, 39);
+    border: 1px solid white;
+    color: white;
     background: none;
     text-decoration: none;
-    font-family: fantasy;
+    font-family: poiret;
+    font-size: 10pt;
 }

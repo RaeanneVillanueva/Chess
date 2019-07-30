@@ -1,0 +1,58 @@
+@font-face {
+    font-family: poiret;
+    src: url("../public/img/PoiretOne.ttf");
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e7e1d4;
+    background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
+}
+
+.loginform {
+    text-align: center;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #58AC8A 6.48%, rgba(88, 172, 138, 0.35) 10.94%, rgba(255, 255, 255, 0.27) 53.44%, rgba(108, 186, 132, 0.25) 92.57%, #6CBA84 93.35%, #6CBA84 105.39%);
+    width: 280px;
+    height: 312px;
+}
+
+.logo {
+    top: -20px;
+}
+
+.inputbox {
+    text-align: center;
+    color: white;
+    font-family: poiret;
+    font-size: 15pt;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 150px;
+    background: none;
+    margin-top: 40px; 
+    outline: none;
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.6;
+}
+
+.submitbtn{
+    font-family: poiret;
+    color: white;
+    font-size: 12pt;
+    background: none;
+    border: 1px solid white;
+    border-radius:10px;
+    padding: 7px;
+    width: 70px;
+    margin: 20px;
+}
+
+.submitbtn:hover {
+    background-color: #1D704E;
+}
