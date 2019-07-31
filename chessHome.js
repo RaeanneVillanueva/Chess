@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    let gameplaydiv, singlebtn, multibtn;
+    let gameplaydiv, singlebtn, multibtn, borderdiv, chessboard;
 
     $("#playbtn").click(function(){
         $(this).slideUp();
@@ -8,7 +8,16 @@ $(document).ready(function(){
 
     $(document).on("click", ".gameplaybtn", function(){
         $("#borderdiv").empty().slideUp();
-        $("body").css({"background": "#e7e1d4"});
+
+        borderdiv = document.createElement("div");
+        borderdiv.className = "border";
+        $("body").append(borderdiv);
+
+        chessboard = document.createElement("div");
+        chessboard.className = "chessboard animated fadeIn"
+        $(chessboard).attr("id", "chessboard");
+        $(borderdiv).append(chessboard);
+        createChessboard();
     })
 
 
@@ -19,15 +28,24 @@ $(document).ready(function(){
         $("#borderdiv").append(gameplaydiv);
 
         singlebtn = document.createElement("a");
-        singlebtn.className = "gameplaybtn animated fadeInUp hvr-sweep-to-right"
+        singlebtn.className = "gameplaybtn hvr-pulse"
         $(singlebtn).text("Single Player");
         $(singlebtn).css("cursor", "pointer");
         gameplaydiv.appendChild(singlebtn);
 
         multibtn = document.createElement("a");
-        multibtn.className = "gameplaybtn animated fadeInUp hvr-sweep-to-right"
+        multibtn.className = "gameplaybtn hvr-pulse"
         $(multibtn).text("Multiplayer");
         $(multibtn).css("cursor", "pointer");
         gameplaydiv.appendChild(multibtn);
+    }
+
+    function createChessboard(){
+        var config = {
+            position: "start",
+            draggable: true
+        }
+        
+        let board = Chessboard("chessboard", config);
     }
 })

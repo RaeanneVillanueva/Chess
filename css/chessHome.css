@@ -3,50 +3,49 @@
     src: url("../public/img/PoiretOne.ttf");
 }
 
-.hvr-sweep-to-right {
+@-webkit-keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  @keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  .hvr-pulse {
+    display: inline-block;
+    vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-.hvr-sweep-to-right:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #1D704E;
-    border-radius: 12px;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: 0 50%;
-    transform-origin: 0 50%;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-}
-.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
-    color: white;
-}
-.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-}
+  }
+  .hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
+    -webkit-animation-name: hvr-pulse;
+    animation-name: hvr-pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
 
 body {
     align-items: center;
     justify-content: center;
     margin: 30px;
     background-color: #e7e1d4;
-    /* background: linear-gradient(180deg, #58AC8A 0%, #A2E073 133.01%);     */
     background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
 }
 
@@ -56,25 +55,20 @@ body {
     justify-items: center;
     width: 95%;
     height: 89%;
-    /* border: solid 2px white; */
 }
 
 h1, .logo {
     align-items: center;
     text-align: center;
-    transform: translateY(30%);
+    transform: translateY(70%);
 }
 
 h1 {
     font-family: poiret;
     color:white;
     font-size: 40pt;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-
-.playbtn, a {
-    animation-delay: 1s;
+    margin-top: 60px;
+    margin-bottom: 35px;
 }
 
 .playbtn {
@@ -113,4 +107,11 @@ h1 {
     text-decoration: none;
     font-family: poiret;
     font-size: 10pt;
+}
+
+.chessboard {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 500px;
 }
