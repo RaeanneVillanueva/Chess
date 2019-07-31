@@ -1,7 +1,7 @@
 <html>
 
     <head>
-        <link rel="shortcut icon" type="image/png" href="../public/img/chess.png">
+        <link rel="shortcut icon" type="image/png" href="../public/img/pagelogo.png">
         <link rel="stylesheet" href="../css/signup.css">
         <link rel="stylesheet" href="../libraries/animate.css">
         <script src="../libraries/jquery.js"></script>
@@ -12,15 +12,14 @@
 
     <body>
 
-        <form class="loginform animated fadeIn" action="">
-            <div class="logo"><img src="../public/img/logo.png" height="70" width="70"></div>
-            <input class="inputbox" type="text" placeholder="name">
-            <br>            
-            <input class= "inputbox" type="text" placeholder="username">
+        <form class="loginform animated fadeIn" action="signup" method="POST">
+            <div class="logo"><img src="../public/img/logo.png" height="70" width="70"></div>    
+
+            <input class= "inputbox" type="text" placeholder="username" name="un">
             <br>
-            <input class="inputbox" type="password" placeholder="password">
+            <input class="inputbox" type="password" placeholder="password" name="pw">
             <br>
-            <input class="submitbtn" type="submit" name="submit">
+            <input class="signupbtn" type="submit" value="Sign Up!">
 
         </form>
         

@@ -25,10 +25,10 @@ body {
 
 .inputbox {
     text-align: center;
-    color: white;
     font-family: poiret;
     font-size: 15pt;
     border: none;
+    color:white;
     border-bottom: 1px solid white;
     width: 150px;
     background: none;
@@ -41,7 +41,7 @@ body {
     opacity: 0.6;
 }
 
-.submitbtn{
+.signupbtn{
     font-family: poiret;
     color: white;
     font-size: 12pt;
@@ -53,6 +53,6 @@ body {
     margin: 20px;
 }
 
-.submitbtn:hover {
+.signupbtn:hover {
     background-color: #1D704E;
 }
