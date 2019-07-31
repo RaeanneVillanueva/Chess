@@ -17,7 +17,7 @@ const {User} = require("./user.js")
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/public/chessSplash.html");
+    res.sendFile(__dirname + "/chessSplash.html");
 })
 
 app.post("/signup", urlencoder, function(req, res){
@@ -44,7 +44,7 @@ app.post("/signup", urlencoder, function(req, res){
 
 
 app.listen(3000, function(req,res){
-    console.log("port is listening...");
+    console.log("port 3000 is listening...");
 })
 
  
