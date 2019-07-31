@@ -11,16 +11,16 @@ $(document).ready(function(){
         gameplaydiv.className = "gameplaydiv";
         $("#borderdiv").append(gameplaydiv);
 
-        singlebtn = document.createElement("a");
-        singlebtn.className = "gameplaybtn animated fadeInUp hvr-sweep-to-right";
-        $(singlebtn).text("Sign Up!");
-        $(singlebtn).css("cursor", "pointer");
+        signupbtn = document.createElement("a");
+        signupbtn.className = "gameplaybtn animated fadeInUp hvr-sweep-to-right";
+        $(signupbtn).text("Sign Up!");
+        $(signupbtn).css("cursor", "pointer");
         gameplaydiv.appendChild(signupbtn);
 
-        multibtn = document.createElement("a");
-        multibtn.className = "gameplaybtn animated fadeInUp hvr-sweep-to-right";
-        $(multibtn).text("Log In");
-        $(multibtn).css("cursor", "pointer");
+        loginbtn = document.createElement("a");
+        loginbtn.className = "gameplaybtn animated fadeInUp hvr-sweep-to-right";
+        $(loginbtn).text("Log In");
+        $(loginbtn).css("cursor", "pointer");
         gameplaydiv.appendChild(loginbtn);
     }
 
