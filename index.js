@@ -40,7 +40,26 @@ app.post("/signup", urlencoder, function(req, res){
 })
 
 
+app.post("/login", urlencoder,function(req,res){
+    let username = req.body.un
+    let password = req.body.pw
 
+    User.findOne({
+        username,
+        password
+    }, function(err, doc){
+        if(err){
+            res.send(err)
+        }else if(doc){
+            console.log(doc)
+            res.render("chessHome.hbs",{
+                username: doc.username
+            })
+        }else {
+            res.send("User not found!")
+        }
+    })
+})
 
 
 app.listen(3000, function(req,res){
