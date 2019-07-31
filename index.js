@@ -26,7 +26,8 @@ app.post("/signup", urlencoder, function(req, res){
 
     let user = new User({
         username,
-        password
+        password,
+        elo: 1200
     })
 
     user.save().then(function(doc){
@@ -45,8 +46,7 @@ app.post("/login", urlencoder,function(req,res){
     let password = req.body.pw
     User.findOne({
         username,
-        password,
-        elo: 1200
+        password
     }, function(err, doc){
         if(err){
             res.send(err)
