@@ -74,10 +74,9 @@ h1 {
 .playbtn {
     text-align: center;
     justify-content: center;
-    padding-top: 10px;
     display: flex;
     width: 80px;
-    height: 30px;
+    height: 40px;
     margin: 0 auto;
     border-radius: 10px;
     border: 1px solid white;
@@ -85,7 +84,7 @@ h1 {
     background: none;
     text-decoration: none;
     font-family: poiret;
-    font-size: 12pt;
+    font-size: 11pt;
 }
 
 .gameplaydiv {
