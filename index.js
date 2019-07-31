@@ -20,50 +20,50 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + "/public/chessSplash.html");
 })
 
-app.post("/signup", urlencoder, function(req, res){
-    var username = req.body.un
-    var password = req.body.pw
+// app.post("/signup", urlencoder, function(req, res){
+//     var username = req.body.un
+//     var password = req.body.pw
 
-    let user = new User({
-        username,
-        password
-    })
+//     let user = new User({
+//         username,
+//         password
+//     })
 
-    user.save().then(function(doc){
-        console.log(doc);
-        res.render("chessHome.hbs", {
-            username: doc.username
-        })
-    },function(err){
-        res.send(err);
-    })
-})
+//     user.save().then(function(doc){
+//         console.log(doc);
+//         res.render("chessHome.hbs", {
+//             username: doc.username
+//         })
+//     },function(err){
+//         res.send(err);
+//     })
+// })
 
 
-app.post("/login", urlencoder,function(req,res){
-    let username = req.body.un
-    let password = req.body.pw
+// app.post("/login", urlencoder,function(req,res){
+//     let username = req.body.un
+//     let password = req.body.pw
 
-    User.findOne({
-        username,
-        password
-    }, function(err, doc){
-        if(err){
-            res.send(err)
-        }else if(doc){
-            console.log(doc)
-            res.render("chessHome.hbs",{
-                username: doc.username
-            })
-        }else {
-            res.send("User not found!")
-        }
-    })
-})
+//     User.findOne({
+//         username,
+//         password
+//     }, function(err, doc){
+//         if(err){
+//             res.send(err)
+//         }else if(doc){
+//             console.log(doc)
+//             res.render("chessHome.hbs",{
+//                 username: doc.username
+//             })
+//         }else {
+//             res.send("User not found!")
+//         }
+//     })
+// })
 
 
 app.listen(3000, function(req,res){
-    console.log("port is listening...");
+    console.log("port 3000 is listening...");
 })
 
  
