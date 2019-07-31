@@ -1,6 +1,6 @@
 @font-face {
     font-family: poiret;
-    src: url("../public/img/PoiretOne.ttf");
+    src: url("/img/PoiretOne.ttf");
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
 }
 
-.loginform {
+.signinform {
     text-align: center;
     margin: 0 auto;
     background: linear-gradient(180deg, #58AC8A 6.48%, rgba(88, 172, 138, 0.35) 10.94%, rgba(255, 255, 255, 0.27) 53.44%, rgba(108, 186, 132, 0.25) 92.57%, #6CBA84 93.35%, #6CBA84 105.39%);
