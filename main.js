@@ -1,1 +1,1 @@
-var chessSplashBtn = require('./public/chessSplash.js')
+var chessSplashBtn = require('./js/chessSplash.js')
