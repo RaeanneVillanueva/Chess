@@ -26,7 +26,8 @@ app.post("/signup", urlencoder, function(req, res){
 
     let user = new User({
         username,
-        password
+        password,
+        elo: 1200
     })
 
     user.save().then(function(doc){
@@ -43,7 +44,6 @@ app.post("/signup", urlencoder, function(req, res){
 app.post("/login", urlencoder,function(req,res){
     let username = req.body.un
     let password = req.body.pw
-
     User.findOne({
         username,
         password
@@ -53,7 +53,8 @@ app.post("/login", urlencoder,function(req,res){
         }else if(doc){
             console.log(doc)
             res.render("chessHome.hbs",{
-                username: doc.username
+                username: doc.username,
+                elo: doc.elo
             })
         }else {
             res.send("User not found!")
