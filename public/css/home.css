@@ -1,0 +1,217 @@
+@font-face {
+    font-family: poiret;
+    src: url("../img/PoiretOne.ttf");
+}
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  
+body {
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: #e7e1d4;
+    background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
+}
+
+
+img {
+    margin: 0;  
+    padding-top: 15px;  
+}
+
+.logoname {
+    font-family: poiret;
+    font-size: 30pt;
+    color: white;
+    font-weight: bolder;
+    margin: -1px;
+    padding-top: 15px;
+}
+
+.navbar {
+    display: flex;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);
+    height: 80px;
+    margin: 0 auto;
+}
+
+div.nav {
+    width: 100%;
+    height: 40px;
+    font-family: poiret;
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: right;
+
+}
+
+.nav-a {
+
+    font-style: none;
+    list-style: none;
+    text-decoration: none;
+    padding: 30px 40px;
+    color: white;
+    font-weight: lighter;
+    float: right;
+
+}
+
+a:hover {
+    background: #58AC8A;
+}
+
+div.dropdown-mode {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown-btn {
+    font-family: poiret;
+    font-size: 13pt;
+    background: none;
+    border: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);    
+    z-index: 1;
+}
+
+a.dropdown-item {
+    display: block;
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    width: 160px;
+    text-decoration: none;
+    text-align: left;
+    font-weight: lighter;
+}
+
+div.dropdown-mode:hover .dropdown-content {
+    display: block;
+}
+
+a.dropdown-item:hover {
+    border: 1px solid white;
+}
+
+.active {
+    background-color: #58AC8A;
+}
+
+h1 {
+    font-family: poiret;
+    font-size: 15pt;
+    color: white;
+    font-weight: lighter;
+    margin-left: 30px;
+}
+
+div.newgame{
+    display: inline-block;
+    width: 400px;
+    height: 250px;
+    margin: 20px;
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    animation-delay: 1s;
+}
+
+div.header {
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);
+    text-align: center;
+    border-bottom: 1px white solid; 
+}
+
+span.header {
+    display: flex;
+    font-family: poiret;
+    font-size: 15pt;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+
+div.settings {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    align-content: flex-start;
+}
+
+div.customize-game{
+    display: block;
+    width: 200px;
+    height: 120px;
+}
+
+
+h1.settinglbl{
+    font-family: poiret;
+    font-size: 20pt;
+    color: white;
+    align-items: center;
+
+}
+
+.select-settings {
+    height: 30px;
+    width: 130px;
+    font-family: poiret;
+    color: white;
+    font-size: 12pt;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);
+    background-color: #58AC8A;
+    outline: none;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.select-settings:hover {
+    background: #58AC8A;
+}
+
+
+.playbtn {
+    font-style: none;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    padding: 20px 40px;
+    width: 180px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);    
+    margin: 0;
+    padding: 10px;
+    font-family: poiret;
+    font-size: 15pt;
+    text-align: center;
+    margin-left: 90px;
+}

@@ -1,9 +1,59 @@
 <html>
+
     <head>
-        <link rel="shortcut icon" type="image/png" href="../public/img/pagelogo.png">        
+        <script src="../public/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="../public/img/chess.png">
+        <link rel="stylesheet" href="../public/css/home.css">
+        <link rel="stylesheet" href="../public/libraries/animate.css">
+
+        <title>Chess Game</title>
     </head>
+
     <body>
-        Hi! <span>{{username}}!</span>
-        <span>{{elo}}</span>
+
+        <div class="navbar animated fadeIn">
+            
+            <img src="../public/img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+            <div class= " nav animated fadeIn">
+
+                <a class="nav-a hvr-grow" href="">Profile</a>
+                <a class="nav-a hvr-grow" href="">Friends</a>
+                <a class="nav-a active hvr-grow" href="">Home</a>
+                <a class="nav-a hvr-grow" href="play.hbs">Play</a>
+            </div>
+        </div>
+        
+        <div class="newgame animated fadeIn">
+            <div class="header"><span class="header">New Game</span></div>
+
+            <div class="settings">
+
+                <div class="customize-game">
+                    <h1 class="settinglbl">Time</h1>
+                    <select name="" id="" class="select-settings">
+                        <option value="3">3 min</option>
+                        <option value="5">5 min</option>
+                        <option value="10">10 min</option>
+                    </select>
+                </div>
+
+                <div class="customize-game">
+                    <h1 class="settinglbl">Mode</h1>
+                    <select name="" id="" class="select-settings">
+                        <option value="human-vs-bot">Human vs Bot</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                        <option value="puzzle">Puzzle</option>
+                    </select>
+                </div>
+
+                <a href="" class="playbtn">Play!</a>
+
+
+            </div>
+        </div>
+
     </body>
+
 </html>
