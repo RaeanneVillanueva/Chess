@@ -32,6 +32,6 @@ function gameplaybtns() {
 
 module.exports = button;
 },{}],2:[function(require,module,exports){
-var chessSplashBtn = require('./chessSplash.js')
+var chessSplashBtn = require('./js/chessSplash.js')
 
-},{"./chessSplash.js":1}]},{},[2]);
+},{"./js/chessSplash.js":1}]},{},[2]);

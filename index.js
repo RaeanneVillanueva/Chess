@@ -8,7 +8,7 @@ const urlencoder = bodyparser.urlencoded({
 const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/users", {
+mongoose.connect("mongodb://localhost:27017/chessusers", {
     useNewUrlParser: true
 })
 
