@@ -17,14 +17,14 @@ function gameplaybtns() {
     signupbtn.className = "gameplaybtn hvr-pulse";
     $(signupbtn).text("Sign Up!");
     $(signupbtn).css("cursor", "pointer");
-    $(signupbtn).attr("href", "signup.html")
+    $(signupbtn).attr("href", "signup")
     gameplaydiv.appendChild(signupbtn);
 
     loginbtn = document.createElement("a");
     loginbtn.className = "gameplaybtn hvr-pulse";
     $(loginbtn).text("Log In");
     $(loginbtn).css("cursor", "pointer");
-    $(loginbtn).attr("href", "login.html")
+    $(loginbtn).attr("href", "login")
     gameplaydiv.appendChild(loginbtn);
 
 }

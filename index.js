@@ -71,16 +71,28 @@ app.post("/login", urlencoder, function (req, res) {
             res.send(err)
         } else if (doc) {
             req.session.username = doc.username
-            res.render("home.hbs", {
-                username: doc.username,
-                elo: doc.elo
-            })
+            res.redirect("/")
         } else {
             res.send("User not found!")
         }
     })
 })
 
+app.get("/login", function(req,res){
+    res.sendFile(__dirname + "/public/login.html")
+})
+
+app.get("/signup", function(req,res){
+    res.sendFile(__dirname+ "/public/signup.html")
+})
+
+app.get("/play", function(req,res){
+    res.render("play.hbs", {})
+})
+
+app.get("/profile", function(req,res){
+
+})
 
 app.listen(3000, function (req, res) {
     console.log("port 3000 is listening...");
