@@ -57,11 +57,9 @@ div.nav {
     font-size: 13pt;
     font-weight: bold;
     text-align: right;
-
 }
 
 .nav-a {
-
     font-style: none;
     list-style: none;
     text-decoration: none;
@@ -69,52 +67,11 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
-
 }
 
 .nav-a:hover {
     background: #58AC8A;
 }
-
-/*div.dropdown-mode {
-    float: right;
-    overflow: hidden;
-}
-
-.dropdown-btn {
-    font-family: poiret;
-    font-size: 13pt;
-    background: none;
-    border: none;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-a.dropdown-item {
-    display: block;
-    float: none;
-    color: white;
-    padding: 12px 16px;
-    width: 160px;
-    text-decoration: none;
-    text-align: left;
-    font-weight: lighter;
-}
-
-div.dropdown-mode:hover .dropdown-content {
-    display: block;
-}
-
-a.dropdown-item:hover {
-    border: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.10);
-} */
 
 .active {
     background-color: #58AC8A;
@@ -133,64 +90,39 @@ h1 {
 div.mainpage{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 84%;
+    width: 99.5%;
+    height: 85%;
     margin: 0;
     border-radius: 5px;
     align-items: center;
 
 }
 
-div.header {
-    width: 73%;
-    height: 50px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 10px;
-    animation-delay: 0.5s;
-
-}
-
-span.header {
-    display: flex;
-    font-family: poiret;
-    font-size: 15pt;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-}
-
 div.game-modes {
     display: flex;
-    width: 70%;
-    height: 88%;
-    animation-delay: 0.5s;
-
+    width: 80%;
+    height: 100%;
 
 }
 
 div.mode-div {
-    width: 280px;
-    height: 95%;
+    width: 250px;
+    height: 88%;
     background-color: rgba(255, 255, 255, 0.10);
-    margin: 10px;
-    border-radius: 10px;
-
+    margin: 21px;
+    border-radius: 5px;
     display: block;
     align-items: center;
 
 }
 
 div.mode-img {
-
     width: 95%;
     height: 200px;
     margin: 5px;
     text-align: center;
     align-content: center;
     justify-content: center;
-
 }
 
 a.gamemode-label {
@@ -199,7 +131,6 @@ a.gamemode-label {
     font-family: poiret;
     font-size: 18pt;
     padding: 10px;
-
     font-weight: bold;
 }
 
@@ -207,7 +138,8 @@ p.mode-description {
     color: white;
     font-size: 12pt;
     font-family: poiret;
-    margin: 10px;
-    margin-top: 0px;
+    margin: 20px;
+    margin-top: 10px;
+    justify-content: center;
 }
 
