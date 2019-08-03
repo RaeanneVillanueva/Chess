@@ -57,7 +57,7 @@ div.nav {
     font-size: 13pt;
     font-weight: bold;
     text-align: right;
-
+    margin-right: 10px;
 }
 
 .nav-a {
