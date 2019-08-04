@@ -29,6 +29,12 @@ body {
     background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
 }
 
+a {
+    text-decoration: none;
+    font-family: poiret;
+    color: white;
+}
+
 
 img {
     margin: 0;  
@@ -104,11 +110,12 @@ div.game-modes {
     display: flex;
     width: 80%;
     height: 100%;
-
+    align-content: center;
+    justify-content: center;
 }
 
 div.mode-div {
-    width: 250px;
+    width: 220px;
     height: 88%;
     background-color: rgba(255, 255, 255, 0.10);
     margin: 21px;
@@ -127,13 +134,14 @@ div.mode-img {
     justify-content: center;
 }
 
-a.gamemode-label {
+p.gamemode-label {
     color: white;
     text-decoration: none;
     font-family: poiret;
     font-size: 18pt;
-    padding: 10px;
+    padding: 5px;
     font-weight: bold;
+    margin: 10px;
 }
 
 p.mode-description {
@@ -144,4 +152,5 @@ p.mode-description {
     margin-top: 10px;
     justify-content: center;
 }
+
 
