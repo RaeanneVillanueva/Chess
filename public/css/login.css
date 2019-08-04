@@ -12,6 +12,7 @@ body {
 }
 
 .loginform {
+    display: block;
     text-align: center;
     margin: 0 auto;
     background: linear-gradient(180deg, #58AC8A 6.48%, rgba(88, 172, 138, 0.35) 10.94%, rgba(255, 255, 255, 0.27) 53.44%, rgba(108, 186, 132, 0.25) 92.57%, #6CBA84 93.35%, #6CBA84 105.39%);
@@ -32,13 +33,22 @@ body {
     border-bottom: 1px solid white;
     width: 150px;
     background: none;
-    margin-top: 30px; 
+    margin-top: 30px;
+    margin-bottom: 3px; 
     outline: none;
 }
 
 ::placeholder {
     color: white;
     opacity: 0.6;
+}
+
+.error {
+    font-family: poiret;
+    font-size: 10pt;
+    font-weight: bold;
+    color: maroon;
+    padding: 5px;
 }
 
 .loginbtn{
