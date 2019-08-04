@@ -4,7 +4,7 @@
   "description": "chess mp for WEBAPDE",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "build": "browserify main.js -o public/bundle.js",
     "watch": "watchify main.js -o public/bundle.js"
   },
