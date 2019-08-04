@@ -27,7 +27,6 @@ app.use(session({
 app.use(cookieparser())
 
 app.get("/", function (req, res) {
-    console.log(req.session.username)
     if (!req.session.username)
         res.sendFile(__dirname + "/public/splash.html")
     else
@@ -47,12 +46,10 @@ app.post("/signup", urlencoder, function (req, res) {
     })
 
     user.save().then(function (doc) {
-        console.log(doc);
         req.session.username = doc.username
 
         res.render("home.hbs", {
-            username: doc.username,
-            elo: doc.elo
+            username: doc.username
         })
     }, function (err) {
         res.send(err);
@@ -87,7 +84,12 @@ app.get("/signup", function(req,res){
 })
 
 app.get("/play", function(req,res){
-    res.render("play.hbs", {})
+
+    if(req.session.username){
+        res.render("play.hbs", {
+            username: req.session.username
+        })
+    }
 })
 
 app.get("/profile", function(req,res){
