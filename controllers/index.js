@@ -3,6 +3,8 @@ const router = express.Router()
 const app = express()
 
 router.use("/user", require("./user"))
+router.use("/play", require("./play"))
+
 
 router.get("/", function (req, res) {
     console.log("GET /")
@@ -14,16 +16,7 @@ router.get("/", function (req, res) {
         })
 })
 
-router.get("/play", function(req,res){
-    console.log("GET /play ")
-    if(req.session.username){
-        res.render("play.hbs", {
-            username: req.session.username
-        })
-    }else{
-        res.redirect("/")
-    }
-})
+
 
 router.get("/profile", function(req,res){
     console.log("GET /profile")

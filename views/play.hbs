@@ -1,59 +1,67 @@
 <html>
 
-    <head>
-        <script src="../libraries/jquery.js"></script>
-        <link rel="shortcut icon" type="image/png" href="../img/pagelogo.png">
-        <link rel="stylesheet" href="../css/play.css">
-        <link rel="stylesheet" href="../libraries/animate.css">
+<head>
+    <script src="../libraries/jquery.js"></script>
+    <link rel="shortcut icon" type="image/png" href="../img/pagelogo.png">
+    <link rel="stylesheet" href="../css/play.css">
+    <link rel="stylesheet" href="../libraries/animate.css">
 
-        <title>Chess Game</title>
-    </head>
+    <title>Chess Game</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="navbar">
-            
-            <img src="../img/logo.png" width="40" height="40">
-            <span class="logoname">chess</span>
-            <div class= " nav">
+    <div class="navbar">
 
-                {{!-- <a class="nav-a hvr-grow" href="">{{username}}</a> --}}
-                <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
-                <a class="nav-a hvr-grow" href="">Room</a>
-                <a class="nav-a hvr-grow" href="/">Home</a>
-                <a class="nav-a hvr-grow active" href="play">Play</a>
+        <img src="../img/logo.png" width="40" height="40">
+        <span class="logoname">chess</span>
+        <div class=" nav">
 
-            </div>
+            {{!-- <a class="nav-a hvr-grow" href="">{{username}}</a> --}}
+            <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+            <a class="nav-a hvr-grow" href="">Room</a>
+            <a class="nav-a hvr-grow" href="/">Home</a>
+            <a class="nav-a hvr-grow active" href="play">Play</a>
+
         </div>
-        
-        <div class="mainpage">
-            <div class="game-modes">
-                <div class="mode-div hvr-grow">
-                    <div class="mode-img"><img src="../img/chess-bot.png" width="151" height= "160"></div>    
-                    <a class= "gamemode-label" href="">Human Vs. Bot</a>
-                    <p class= "mode-description">Play against a computer generated bot and you can practice and improve you skills here!</p>
-                </div>
+    </div>
 
-                <div class="mode-div hvr-grow">
-                    <div class="mode-img"><img src="../img/chess-online.png" width="151" height= "160"></div>    
-                    <a class= "gamemode-label" href=""> Play Chess Online</a>
-                    <p class= "mode-description">Invite a friend and play against each other online!</p>
+    <div class="mainpage">
+        <div class="game-modes">
+            <a>
+                <div id="bot" class="mode-div hvr-grow">
+                    <div class="mode-img"><img src="../img/chess-bot.png" width="151" height="160"></div>
+                    <p class="gamemode-label">Human Vs. Bot</p>
+                    <p class="mode-description">Play against a computer generated bot and you can practice and improve
+                        you skills here!</p>
                 </div>
-
-                <div class="mode-div hvr-grow">
-                    <div class="mode-img"><img src="../img/offline-chess.png" width="151" height= "160"></div>    
-                    <a class= "gamemode-label" href="">Play Chess Offline</a>
-                    <p class= "mode-description">You can play against another player using the same device and enjoy playing offline!</p>
+            </a>
+            <a href="/play/online">
+                <div id="online" class="mode-div hvr-grow">
+                    <div class="mode-img"><img src="../img/chess-online.png" width="151" height="160"></div>
+                    <p class="gamemode-label"> Play Chess Online</p>
+                    <p class="mode-description">Invite a friend and play against each other online!</p>
                 </div>
-
-                <div class="mode-div hvr-grow">
-                    <div class="mode-img"><img src="../img/chess-puzzle.png" width="151" height= "160"></div>    
-                    <a class= "gamemode-label" href="">Puzzle</a>
-                    <p class= "mode-description">No one to play with? No problem! Solve chess puzzles here!</p>
+            </a>
+            <a>
+                <div id="offline" class="mode-div hvr-grow">
+                    <div class="mode-img"><img src="../img/offline-chess.png" width="151" height="160"></div>
+                    <p class="gamemode-label">Play Chess Offline</p>
+                    <p class="mode-description">You can play against another player using the same device and enjoy
+                        playing
+                        offline!</p>
                 </div>
-            </div>
+            </a>
+            <a>
+                <div id="puzzle" class="mode-div hvr-grow">
+                    <div class="mode-img"><img src="../img/chess-puzzle.png" width="151" height="160"></div>
+                    <p class="gamemode-label">Puzzle</p>
+                    <p class="mode-description">No one to play with? No problem! Solve chess puzzles here!</p>
+                </div>
+            </a>
         </div>
+    </div>
 
-    </body>
+</body>
 
 </html>
