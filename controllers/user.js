@@ -33,8 +33,6 @@ router.post("/signup", (req, res) => {
         wins: 0,
         loses: 0
     }
-
-
     User.create(user).then((user) => {
         console.log("successful " + user)
         req.session.username = user.username
@@ -43,8 +41,10 @@ router.post("/signup", (req, res) => {
         })
         res.redirect("/")
     }, (error) => {
+        res.render(signup, {
+            error: "Oops :'( there was an error"}
+        )
         console.log("ERROR signing up")
-        res.redirect("/user/signup")
     })
 })
 
@@ -66,13 +66,15 @@ router.post("/login", (req, res) => {
             })
             res.redirect("/")
         } else {
-            res.render("login",{
+            res.render("login", {
                 error: "Account not found"
             })
         }
     }, (error) => {
+        res.render("login", {
+            error: "Oops :'( there was an error"
+        })
         console.log("ERROR in logging in")
-        res.redirect("/user/login")
     })
 })
 

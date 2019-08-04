@@ -37,4 +37,11 @@ router.get("/profile", function(req,res){
     }
 })
 
+router.get("/logout", function(req,res){
+    req.session.destroy((err)=>{
+        console.log("ERROR destroying cookie")
+    })
+    res.redirect("/")
+})
+
 module.exports = router

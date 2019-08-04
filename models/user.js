@@ -23,6 +23,7 @@ userSchema.pre("save", function (next) {
     next()
 })
 
+
 var User = mongoose.model("chessuser", userSchema)
 
 exports.create = function (user) {
@@ -42,15 +43,30 @@ exports.create = function (user) {
 exports.authenticate = function (user) {
     return new Promise(function (resolve, reject) {
         console.log("in promise : " + user.username)
+
+        var hashedpw;
+
         User.findOne({
-            username: user.username,
-            password: hash(user.salt + user.password + user.salt)
-        }).then((user) => {
-            console.log("callback user : " + user)
-            resolve(user)
-        }, (err) => {
+            username: user.username
+        }).then((findUser)=>{
+            if(findUser)
+                hashedpw = hash(findUser.salt + user.password + findUser.salt)
+            
+            User.findOne({
+                username: user.username,
+                password: hashedpw
+            }).then((user) => {
+                resolve(user)
+            }, (err) => {
+                reject(err)
+            })
+        }, (err)=>{
             reject(err)
         })
+        
+        
+
+        
     })
 }
 
