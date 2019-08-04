@@ -72,3 +72,14 @@ a {
 .loginbtn:hover {
     background-color: #1D704E;
 }
+
+.cancel-login {
+    font-family: poiret;
+    font-size: 10pt;
+    color: white;
+}
+
+.signup {
+    font-size: 10pt;
+    color: yellow;
+}
