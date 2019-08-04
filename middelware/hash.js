@@ -1,7 +1,5 @@
 const sha256 = require("js-sha256")
 
-
-
 function makeHash(input) {
   var hash = sha256.create()
   hash.update(input)

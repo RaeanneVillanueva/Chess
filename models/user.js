@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const hash = require("../js/hash.js")
+const hash = require("../middelware/hash.js")
 const salt = require('crypto-random-string');
 
 var userSchema = mongoose.Schema({
