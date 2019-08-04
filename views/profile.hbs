@@ -1,0 +1,101 @@
+<html>
+
+    <head>
+
+        <script src="../libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="../img/pagelogo.png">
+        <link rel="stylesheet" href="../css/profile.css">
+        <link rel="stylesheet" href="../libraries/animate.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+            <div class= " nav">
+
+                <a class="nav-a active hvr-grow" href="">{{username}}</a>
+                <a class="nav-a hvr-grow" href="">Rooms</a>
+                <a class="nav-a hvr-grow" href="home.html">Home</a>
+                <a class="nav-a hvr-grow" href="play.html">Play</a>
+
+            </div>
+        </div>
+        
+        <div class="mainpage">
+            <div class="profile-details">
+
+                <div class="profile-handle">
+                    <img class="profile-img" src="../img/pagelogo.png" alt="">
+                    <div class="profile-description">
+                        <a class="settings" href="">Log Out</a>                            
+                        <a class="settings" href="">Edit</a>
+                        <a class="username">{{username}}</a>
+                        <br><br>
+                        <span class="details-lbl">Rank: </span>
+                        <span class ="detail">{{elo}}</span>
+                        <br>
+                        <span class="details-lbl">Joined : </span>
+                        <span class="detail">{{dateJoined}}</span>
+                        <br>
+
+                    </div>
+                </div>
+
+                <div class="player-info">
+                    <div class="div-stats">
+                        <div class="stat">
+                            <span class="stat-lbl" style="color: yellow">Games Played</span>
+                            <br>
+                            <span class="stat-count">{{gamesPlayed}}</span>
+                        </div>
+    
+                        <div class="stat">
+                            <span class="stat-lbl" style="color: green">Wins</span>
+                            <br>
+                            <span class="stat-count">{{wins}}</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-lbl" style="color: red">Loses</span>
+                            <br>
+                            <span class="stat-count">{{loses}}</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-lbl" style="color: lightgray">Draw</span>
+                            <br>
+                            <span class="stat-count">{{draws}}</span>
+                        </div>
+                    </div>
+
+                    <div class="more-info"></div>
+                </div>
+
+                <div class="friends">
+                    <div class="friends-header"><span class="friends-lbl">Friends</span></div>
+                    <div class="friends-list">
+
+                        {{!-- para alam mo ano ichura i guess ..  --}}
+                        <a class="friend-profile" href="">
+                            <span>Andrew</span> 
+                            <span class="friend-rank">2001</span>
+                            <span class="invite">Invite</span>
+                        </a>
+                        {{!-- add this code snippet in js(?) everytime you have a new friend
+                            <a class="friend-profile" href="">
+                            <span>{{username of friend}}</span> 
+                            <span class="friend-rank">{{rank of friend}}</span>
+                            <span class="invite">Invite</span>    
+                        </a> --}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+
+</html>
