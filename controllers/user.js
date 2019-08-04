@@ -36,10 +36,10 @@ router.post("/signup", (req, res) => {
     User.create(user).then((user) => {
         console.log("successful " + user)
         req.session.username = user.username
-        res.render("home", {
-            username: user.username
-        })
-        // res.redirect("/")
+        // res.render("home", {
+        //     username: user.username
+        // })
+        res.redirect("/")
     }, (error) => {
         res.render(signup, {
             error: "Oops :'( there was an error"}
@@ -61,10 +61,10 @@ router.post("/login", (req, res) => {
         console.log("authenticate " + newUser)
         if (newUser) {
             req.session.username = user.username
-            res.render("home", {
-                username: user.username
-            })
-            // res.redirect("/")
+            // res.render("home", {
+            //     username: user.username
+            // })
+            res.redirect("/")
         } 
     }, (error) => {
         res.render("login", {
