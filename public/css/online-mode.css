@@ -35,7 +35,7 @@ body {
 }
 
 
-img {
+img.tool-img {
     margin: 0;  
     padding-top: 15px;  
 }
@@ -44,7 +44,7 @@ img {
     font-family: poiret;
     font-size: 30pt;
     color: white;
-    font-weight: bolder;
+    font-weight: bolder;    
     margin: -1px;
     padding-top: 15px;
 }
