@@ -1,20 +1,26 @@
 const mongoose = require("mongoose")
-// const crypto = require("crypto")
+const hash = require("../js/hash.js")
+const salt = require('crypto-random-string');
 
 var userSchema = mongoose.Schema({
-    username: String,
+    username: {
+        type: String,
+        unique: true
+    },
     password: String,
+    salt: String,
     elo: Number,
     wins: Number,
     loses: Number
 })
 
 userSchema.pre("save", function (next) {
-      this.password = this.password
-      this.elo = 1200
-      this.wins = 0
-      this.loses = 0
-      next()
+    this.salt = salt({length: 10, type: 'base64'})
+    this.password = hash(this.salt + this.password + this.salt)
+    this.elo = 1200
+    this.wins = 0
+    this.loses = 0
+    next()
 })
 
 var User = mongoose.model("chessuser", userSchema)
@@ -38,7 +44,7 @@ exports.authenticate = function (user) {
         console.log("in promise : " + user.username)
         User.findOne({
             username: user.username,
-            password: user.password
+            password: hash(user.salt + user.password + user.salt)
         }).then((user) => {
             console.log("callback user : " + user)
             resolve(user)

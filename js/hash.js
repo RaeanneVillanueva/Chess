@@ -7,6 +7,4 @@ function makeHash(input) {
     return hash.hex()
 };
 
-module.exports = {
-  makeHash
-}
+module.exports = makeHash

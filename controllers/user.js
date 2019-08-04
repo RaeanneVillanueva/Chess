@@ -12,15 +12,15 @@ const urlencoder = bodyparser.urlencoded({
 router.use(urlencoder)
 
 // localhost:3000/user/login
-router.get("/login", function(req,res){
+router.get("/login", function (req, res) {
     console.log("GET /user/login")
-    res.render("login",{})
+    res.render("login", {})
 })
 
 // localhost:3000/user/signup
-router.get("/signup", function(req,res){
+router.get("/signup", function (req, res) {
     console.log("GET /user/signup")
-    res.render("signup",{})
+    res.render("signup", {})
 })
 
 
@@ -34,6 +34,7 @@ router.post("/signup", (req, res) => {
         loses: 0
     }
 
+
     User.create(user).then((user) => {
         console.log("successful " + user)
         req.session.username = user.username
@@ -43,8 +44,8 @@ router.post("/signup", (req, res) => {
         res.redirect("/")
     }, (error) => {
         console.log("ERROR signing up")
+        res.redirect("/user/signup")
     })
-
 })
 
 router.post("/login", (req, res) => {
@@ -64,10 +65,14 @@ router.post("/login", (req, res) => {
                 username: user.username
             })
             res.redirect("/")
-
+        } else {
+            res.render("login",{
+                error: "Account not found"
+            })
         }
     }, (error) => {
-        console.log(error)
+        console.log("ERROR in logging in")
+        res.redirect("/user/login")
     })
 })
 
