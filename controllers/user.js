@@ -39,7 +39,7 @@ router.post("/signup", (req, res) => {
         res.render("home", {
             username: user.username
         })
-        res.redirect("/")
+        // res.redirect("/")
     }, (error) => {
         res.render(signup, {
             error: "Oops :'( there was an error"}
@@ -64,15 +64,11 @@ router.post("/login", (req, res) => {
             res.render("home", {
                 username: user.username
             })
-            res.redirect("/")
-        } else {
-            res.render("login", {
-                error: "Account not found"
-            })
-        }
+            // res.redirect("/")
+        } 
     }, (error) => {
         res.render("login", {
-            error: "Oops :'( there was an error"
+            error
         })
         console.log("ERROR in logging in")
     })
