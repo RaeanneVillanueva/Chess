@@ -74,16 +74,16 @@ router.post("/login", urlencoder, (req, res) => {
         User.authenticate(user).then((newUser) => {
             console.log("authenticate " + newUser)
             if (newUser) {
+                console.log("hello")
                 req.session.username = user.username
                 // res.render and res.redirect does not work with ajax, both send html block which would only be read as text
                 // res.render("home", {
                 //     username: user.username
                 // })
-                // res.redirect("/")
+                res.redirect("/")
             }
         }, (error) => {
-            // console.log(error)
-            errorMessage = "Incorrect username/password!"
+            errorMessage = error.message
             res.set('Content-Type', 'text/plain')
             res.send(errorMessage)
 
