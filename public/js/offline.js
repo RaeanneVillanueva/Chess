@@ -43,6 +43,8 @@ function onDrop (source, target) {
   if (move === null) return 'snapback'
   console.log(board.position('fen'))
   console.log(game.history())
+
+  window.setTimeout(board.flip, 250)
 }
 
 function onMouseoverSquare (square, piece) {

@@ -44,7 +44,7 @@ router.get("/offline", function (req, res) {
 
 router.get("/bot", function (req, res) {
     if (req.session.username) {
-        res.render("offline-mode", {
+        res.render("bot-mode", {
             username: req.session.username
         })
     } else {
