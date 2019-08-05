@@ -1,7 +1,6 @@
 <html>
 
     <head>
-
         <script src="/libraries/jquery.js"></script>
         <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
         <link rel="stylesheet" href="/css/rooms.css">
@@ -31,36 +30,22 @@
 
                 <div class="room-divs">
                     <div class="room">
-                        
+                        <div class="room-details">
+                            <span class="room-name">Let's play!!!</span>
+                            {{!-- <span class="room-name">{{room-name}}</span> --}}
+                            <span class="created-by">Created By: <a href="" class="owner">Andrew</a></span>
+                            {{!-- <span class="created-by">Created By: <a href="" class="owner">{{username}}</a></span> --}}
+                        </div>
+                        <a href="" class="join">Join</a>
                     </div>
-                </div>
-                
-
-            </div>
-            <div class="create-room">
-
-                <div class="choose-mode">
-                    <div class="header"><span class="header-lbl">Create New Room</span></div>
-
-                    {{!-- nilagyan ko na ng anchor, derecho sya dun sa mode pages --}}
-                   <a href="">
-                        <div class="mode">Play Online</div>                    
-                   </a>
-                   
-                   <a href="">
-                        <div class="mode">Play Offline</div>                    
-                   </a>
-
-                   <a href="">
-                        <div class="mode">Play Vs. Robot</div>                    
-                   </a>
-
-                   <a href="">
-                        <div class="mode">Play Puzzle</div>                    
-                   </a>
 
                 </div>
                 
+                <div class="create-room">
+                    <a href="" class="refresh-btn">Refresh</a>
+                    <a href="" class="create-btn">Create Room</a>
+                </div>
+
             </div>
         </div>
 
