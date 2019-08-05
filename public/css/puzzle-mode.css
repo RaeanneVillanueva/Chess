@@ -36,10 +36,11 @@ body {
 }
 
 
-img {
+img.tool-img, img.logo {
     margin: 0;  
     padding-top: 15px;  
 }
+
 
 .logoname {
     font-family: poiret;

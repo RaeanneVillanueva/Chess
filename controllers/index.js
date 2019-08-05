@@ -4,7 +4,7 @@ const app = express()
 
 router.use("/user", require("./user"))
 router.use("/play", require("./play"))
-
+router.use("/rooms", require("./rooms"))
 
 router.get("/", function (req, res) {
     console.log("GET /")
