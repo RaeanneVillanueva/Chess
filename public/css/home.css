@@ -19,6 +19,11 @@
     transform: scale(1.1);
   }
 
+a {
+    text-decoration: none;
+    color: white;
+    font-family: poiret;
+} 
   
 body {
     align-items: center;
@@ -26,6 +31,10 @@ body {
     margin: 0;
     background-color: #e7e1d4;
     background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
+}
+
+.active {
+    background-color: #58AC8A;
 }
 
 

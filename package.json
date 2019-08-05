@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "build": "browserify main.js -o public/bundle.js",
-    "watch": "watchify main.js -o public/bundle.js"
+    "build": "browserify js/main.js -o public/js/bundle.js",
+    "watch": "watchify js/main.js -o public/js/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
+    "crypto-random-string": "^3.0.1",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "hbs": "^4.0.4",

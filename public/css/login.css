@@ -11,6 +11,12 @@ body {
     background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
 }
 
+a {
+    text-decoration: none;
+    color: white;
+    font-family: poiret;
+}
+
 .loginform {
     display: block;
     text-align: center;
@@ -65,4 +71,9 @@ body {
 
 .loginbtn:hover {
     background-color: #1D704E;
+}
+
+.signup {
+    font-size: 10pt;
+    color: yellow;
 }

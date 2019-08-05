@@ -1,5 +1,3 @@
-
-
 var button = $("#playbtn").click(function () {
     $(this).slideUp();
     gameplaybtns();
