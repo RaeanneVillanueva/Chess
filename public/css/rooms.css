@@ -62,7 +62,7 @@ div.nav {
     font-size: 13pt;
     font-weight: bold;
     text-align: right;
-
+    margin-right: 10px;
 }
 
 .nav-a {
@@ -74,7 +74,6 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
-
 }
 
 .nav-a:hover {
@@ -102,8 +101,6 @@ div.mainpage{
 
     align-items: center;
     justify-content: center;
-
-    /* border: 1px solid white; */
 }
 
 .header {

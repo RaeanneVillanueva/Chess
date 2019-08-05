@@ -66,6 +66,8 @@ div.nav {
     font-size: 13pt;
     font-weight: bold;
     text-align: right;
+    margin-right: 10px;
+
 
 }
 
@@ -78,6 +80,7 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
+    margin-right: 10px;
 
 }
 
@@ -118,7 +121,6 @@ div.chessboard {
     width: 480px;
     height: 440px;
     margin: 10px;
-    border: 1px solid yellow;
 }
 
 div.players {
@@ -130,7 +132,6 @@ div.players {
     border-radius: 5px;
     align-content: center;
     justify-content: center;
-    /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
 div.bot {
