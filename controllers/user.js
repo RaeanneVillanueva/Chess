@@ -10,6 +10,7 @@ const urlencoder = bodyparser.urlencoded({
 })
 
 router.use(urlencoder)
+router.use(bodyparser.json())
 
 // localhost:3000/user/login
 router.get("/login", function (req, res) {
@@ -48,30 +49,48 @@ router.post("/signup", (req, res) => {
     })
 })
 
-router.post("/login", (req, res) => {
+router.post("/login", urlencoder, (req, res) => {
     console.log("POST /user/login")
+    errorMessage = ""
     let user = {
         username: req.body.username,
         password: req.body.password
     }
-    console.log("post login " + req.body.username)
+    console.log("post login " + req.body.username + "|")
+    console.log("post login " + req.body.password + "|")
     console.log("post login " + user)
 
-    User.authenticate(user).then((newUser) => {
-        console.log("authenticate " + newUser)
-        if (newUser) {
-            req.session.username = user.username
-            // res.render("home", {
-            //     username: user.username
-            // })
-            res.redirect("/")
-        } 
-    }, (error) => {
-        res.render("login", {
-            error
+    if(!req.body.username){//res.send can send text
+        errorMessage = "Please input a username"
+        console.log(errorMessage)
+        res.set('Content-Type', 'text/plain')
+        res.send(errorMessage)
+    } else if (!req.body.password) {
+        errorMessage = "Please input a password"
+        console.log(errorMessage)
+        res.set('Content-Type', 'text/plain')
+        res.send(errorMessage)
+    } else{
+        User.authenticate(user).then((newUser) => {
+            console.log("authenticate " + newUser)
+            if (newUser) {
+                req.session.username = user.username
+                // res.render and res.redirect does not work with ajax, both send html block which would only be read as text
+                // res.render("home", {
+                //     username: user.username
+                // })
+                // res.redirect("/")
+            }
+        }, (error) => {
+            // console.log(error)
+            errorMessage = "Incorrect username/password!"
+            res.set('Content-Type', 'text/plain')
+            res.send(errorMessage)
+
+            // testing for to make sure names can still be sent
+            // req.session.username = errorMessage
         })
-        console.log("ERROR in logging in")
-    })
+    }
 })
 
 
