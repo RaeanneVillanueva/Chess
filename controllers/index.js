@@ -37,4 +37,8 @@ router.get("/logout", function(req,res){
     res.redirect("/")
 })
 
+router.get("*", function(req,res){
+    res.send("Queit out here (・_・) . . . Oh, we didn't find the page you were looking for . . . sorry")
+})
+
 module.exports = router

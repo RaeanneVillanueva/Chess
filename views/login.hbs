@@ -5,47 +5,22 @@
         <link rel="stylesheet" href="/css/login.css">
         <link rel="stylesheet" href="/libraries/animate.css">
         <script src="/libraries/jquery.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".loginbtn").click(function() {
-                    console.log("hello")
-                    let username = $("#inputUsername").val()
-                    let password = $("#inputPassword").val()
-                    $.ajax({
-                        url: "login",
-                        type: 'POST',
-                        data: {
-                            username: username,
-                            password: password
-                        },
-                        success: function(result, status, jqxhr){
-                            console.log(jqxhr.getResponseHeader("Content-Type"))
-                            if(jqxhr.getResponseHeader("Content-Type") == "text/plain; charset=utf-8"){
-                                console.log("TESTING")
-                                $("span.error").text(result)
-                            } else {
-                                window.location.href = "/"
-                            }
-                        }
-                    })
-                })
-            })
-        </script>
+
+
         <title>Chess Game</title>
     </head>
 
     <body>
-        <form id="loginForm"class="loginform animated fadeIn" autocomplete="off" action="/user/login" method="POST">
+
+        <form class="loginform animated fadeIn" autocomplete="off" action="/user/login" method="POST">
             <div class="logo"><img src="/img/logo.png" height="70" width="70"></div>
-            <input id="inputUsername" class= "inputbox" type="text" placeholder="username" name = "username">
+            <input class= "inputbox" type="text" placeholder="username" name = "username">
             <br>
-            <input id="inputPassword" class= "inputbox" type="password" placeholder="password" name = "password">
+            <input class="inputbox" type="password" placeholder="password" name = "password">
             <br>
-            <span class="error"></span>
+            <span class="error">{{error}}</span>
             <br>
-            <input class="loginbtn" type="button" value="Log In">
-            <br>
-            <a href="" class="signup">Go back</a>
+            <input class="loginbtn" type="submit" value="Log In">
 
         </form>
         

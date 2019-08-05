@@ -1,17 +1,14 @@
-var ChessBoard = require("./chessboard-1.0.0.min.js")
-var Chess = require("./chess.min.js").Chess
-
 var board = null
 var game = new Chess()
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
 
 function removeGreySquares () {
-  $('#onlinechessboard .square-55d63').css('background', '')
+  $('#puzzlechessboard .square-55d63').css('background', '')
 }
 
 function greySquare (square) {
-  var $square = $('#onlinechessboard .square-' + square)
+  var $square = $('#puzzlechessboard .square-' + square)
 
   var background = whiteSquareGrey
   if ($square.hasClass('black-3c85d')) {
@@ -77,7 +74,7 @@ function onSnapEnd () {
 
 var config = {
   draggable: true,
-  position: 'start',
+  position: 'r6r/1p1b1pkp/6q1/2p1R2Q/3p4/7P/PPP3P1/5R1K',
   onDragStart: onDragStart,
   onDrop: onDrop,
   onMouseoutSquare: onMouseoutSquare,
@@ -85,4 +82,4 @@ var config = {
   onSnapEnd: onSnapEnd
 }
 
-board = Chessboard('onlinechessboard', config)
+board = Chessboard('puzzlechessboard', config)

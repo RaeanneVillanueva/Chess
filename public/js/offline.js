@@ -4,11 +4,11 @@ var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
 
 function removeGreySquares () {
-  $('#onlinechessboard .square-55d63').css('background', '')
+  $('#offlinechessboard .square-55d63').css('background', '')
 }
 
 function greySquare (square) {
-  var $square = $('#onlinechessboard .square-' + square)
+  var $square = $('#offlinechessboard .square-' + square)
 
   var background = whiteSquareGrey
   if ($square.hasClass('black-3c85d')) {
@@ -82,4 +82,4 @@ var config = {
   onSnapEnd: onSnapEnd
 }
 
-board = Chessboard('onlinechessboard', config)
+board = Chessboard('offlinechessboard', config)
