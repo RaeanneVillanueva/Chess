@@ -82,7 +82,8 @@ router.post("/login", urlencoder, (req, res) => {
                 // res.redirect("/")
             }
         }, (error) => {
-            console.log(error)
+            // console.log(error)
+            errorMessage = "Incorrect username/password!"
             res.set('Content-Type', 'text/plain')
             res.send(errorMessage)
 
