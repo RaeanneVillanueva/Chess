@@ -1,0 +1,66 @@
+<html>
+
+    <head>
+        <script src="/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+        <link rel="stylesheet" href="/css/online-mode.css">
+        <link rel="stylesheet" href="/libraries/animate.css">
+        <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+            <div class= "nav">
+
+                <a class="nav-a hvr-grow" href="">{{username}}</a>
+                <a class="nav-a hvr-grow" href="">Rooms</a>
+                <a class="nav-a hvr-grow" href="">Home</a>
+                <a class="nav-a active hvr-grow" href="">Play</a>
+            </div>
+        </div>
+        
+
+        <div class="mainpage">
+
+            <div class="chessboard">CHESSBOARD</div>
+
+            <div class="players">
+
+                <div class="bot">
+                    <img class="bot-img" src="../img/robot.png"></img>
+                    <span class="bot-info">Bot</span>
+                </div>
+
+                <div class="tools">
+                    <div class="tool-btn">
+                        <img src="../img/new-game.png" alt="" class="tool-img">
+                        <span class="tool-lbl">New Game</span>
+                    </div>
+
+                    <div class="tool-btn">
+                        <img src="../img/quit.png" alt="" class="tool-img">
+                        <span class="tool-lbl">Quit</span>
+                    </div>
+                    <div class="tool-btn">
+                        <img src="../img/exit.png" alt="" class="tool-img">
+                        <span class="tool-lbl">Exit Room</span>
+                    </div>
+                </div>
+                
+
+                <div class="my-profile">
+                    <span class="my-info">{{username}}</span>
+                    <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
