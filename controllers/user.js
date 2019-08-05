@@ -39,7 +39,9 @@ router.post("/signup", (req, res) => {
         req.session.username = user.username
         res.redirect("/")
     }, (error) => {
-        console.log("ERROR signing up")
+        res.render("signup",{
+            error
+        })
     })
 
 })
@@ -62,7 +64,9 @@ router.post("/login", (req, res) => {
 
         }
     }, (error) => {
-        console.log(error)
+        res.render("login",{
+            error
+        })
     })
 })
 
