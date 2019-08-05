@@ -4,7 +4,7 @@ const app = express()
 
 router.use("/user", require("./user"))
 router.use("/play", require("./play"))
-
+router.use("/rooms", require("./rooms"))
 
 router.get("/", function (req, res) {
     console.log("GET /")
@@ -35,6 +35,10 @@ router.get("/logout", function(req,res){
         console.log("ERROR destroying cookie")
     })
     res.redirect("/")
+})
+
+router.get("*", function(req,res){
+    res.send("Queit out here (・_・) . . . Oh, we didn't find the page you were looking for . . . sorry")
 })
 
 module.exports = router

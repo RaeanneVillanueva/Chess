@@ -1,12 +1,12 @@
 <html>
 
     <head>
-
         <script src="/libraries/jquery.js"></script>
         <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
-        <link rel="stylesheet" href="/css/online-mode.css">
+        <link rel="stylesheet" href="/css/bot-mode.css">
         <link rel="stylesheet" href="/libraries/animate.css">
         <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
+
         <title>Chess Game</title>
     </head>
 
@@ -16,7 +16,7 @@
             
             <img class="logo" src="../img/logo.png" width="40" height="40">
             <span class="logoname">chess</span>
-            <div class= " nav">
+            <div class= "nav">
 
                 <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
                 <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
@@ -28,15 +28,13 @@
 
         <div class="mainpage">
 
-            <div id="onlinechessboard" class="chessboard">CHESSBOARD</div>
+            <div id="botchessboard" class="chessboard">CHESSBOARD</div>
 
             <div class="players">
 
-                <div class="opponent">
-                    <span class="opponent-info">Andrew</span>
-                    {{!-- <span class="opponent-info">{{opponent-username}}</span> --}}
-                    <span class="opponent-info" id="rank">Rank: <span class="opponent-info" id="rank">1200</span></span>
-                            {{!-- <span class="opponent-info" id="rank">Rank: <span class="opponent-info" id="rank">{{opponent-elo}}</span></span> --}}
+                <div class="bot">
+                    <img class="bot-img" src="../img/robot.png"></img>
+                    <span class="bot-info">Bot</span>
                 </div>
 
                 <div class="tools">
@@ -65,7 +63,7 @@
         </div>
         <script src="/libraries/chessboard-1.0.0.min.js"></script>
         <script src="/libraries/chess.min.js"></script>
-        <script src="/js/online.js"></script>
+        <script src="/js/bot.js"></script>
 
     </body>
 </html>

@@ -1,0 +1,54 @@
+<html>
+
+    <head>
+        <script src="/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+        <link rel="stylesheet" href="/css/rooms.css">
+        <link rel="stylesheet" href="/libraries/animate.css">
+        <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+            <div class= " nav">
+
+                <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+                <a class="nav-a active hvr-grow" href="/rooms">Rooms</a>
+                <a class="nav-a hvr-grow" href="/">Home</a>
+                <a class="nav-a hvr-grow" href="/play">Play</a>
+            </div>
+        </div>
+
+        <div class="mainpage">
+            <div class="available">
+                <div class="header"><span class="header-lbl">Available Rooms</span></div>
+
+                <div class="room-divs">
+                    <div class="room">
+                        <div class="room-details">
+                            <span class="room-name">Let's play!!!</span>
+                            {{!-- <span class="room-name">{{room-name}}</span> --}}
+                            <span class="created-by">Created By: <a href="" class="owner">Andrew</a></span>
+                            {{!-- <span class="created-by">Created By: <a href="" class="owner">{{username}}</a></span> --}}
+                        </div>
+                        <a href="" class="join">Join</a>
+                    </div>
+
+                </div>
+                
+                <div class="create-room">
+                    <a href="" class="refresh-btn">Refresh</a>
+                    <a href="" class="create-btn">Create Room</a>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+
+</html>

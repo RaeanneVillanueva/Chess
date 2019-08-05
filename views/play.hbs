@@ -19,16 +19,16 @@
 
             {{!-- <a class="nav-a hvr-grow" href="">{{username}}</a> --}}
             <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
-            <a class="nav-a hvr-grow" href="">Room</a>
+            <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
             <a class="nav-a hvr-grow" href="/">Home</a>
-            <a class="nav-a hvr-grow active" href="play">Play</a>
+            <a class="nav-a active hvr-grow" href="/play">Play</a>
 
         </div>
     </div>
 
     <div class="mainpage">
         <div class="game-modes">
-            <a>
+            <a href="/play/bot">
                 <div id="bot" class="mode-div hvr-grow">
                     <div class="mode-img"><img src="../img/chess-bot.png" width="151" height="160"></div>
                     <p class="gamemode-label">Human Vs. Bot</p>
@@ -43,7 +43,7 @@
                     <p class="mode-description">Invite a friend and play against each other online!</p>
                 </div>
             </a>
-            <a>
+            <a href="/play/offline">
                 <div id="offline" class="mode-div hvr-grow">
                     <div class="mode-img"><img src="../img/offline-chess.png" width="151" height="160"></div>
                     <p class="gamemode-label">Play Chess Offline</p>
@@ -52,7 +52,7 @@
                         offline!</p>
                 </div>
             </a>
-            <a>
+            <a href="/play/puzzle">
                 <div id="puzzle" class="mode-div hvr-grow">
                     <div class="mode-img"><img src="../img/chess-puzzle.png" width="151" height="160"></div>
                     <p class="gamemode-label">Puzzle</p>

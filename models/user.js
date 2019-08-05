@@ -5,13 +5,20 @@ const salt = require('crypto-random-string');
 var userSchema = mongoose.Schema({
     username: {
         type: String,
-        unique: true
+        unique: true,
+        required: true,
+        minlength: 4
     },
-    password: String,
+    password: {
+        type: String,
+        required: true
+    },
     salt: String,
     elo: Number,
     wins: Number,
-    loses: Number
+    loses: Number,
+    following: [{ type: mongoose.Schema.ObjectId, ref: 'chessuser' }],
+    followers: [{ type: mongoose.Schema.ObjectId, ref: 'chessuser' }],
 })
 
 userSchema.pre("save", function (next) {
@@ -38,6 +45,14 @@ exports.create = function (user) {
             reject(err)
         })
     })
+}
+
+exports.edit = function(user){
+    //edits a user's credentials
+}
+
+exports.delete = function(id){
+    //deletes a user (not sure if needed)
 }
 
 exports.authenticate = function (user) {
@@ -95,4 +110,12 @@ exports.getByUsername = function (username) {
             reject(err)
         })
     })
+}
+
+exports.getFollowers = function(user){
+    //get all followers of the user
+}
+
+exports.getFollowing = function(user){
+    //get all the people the user is following
 }
