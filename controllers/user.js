@@ -80,18 +80,14 @@ router.post("/login", urlencoder, (req, res) => {
                 //     username: user.username
                 // })
                 // res.redirect("/")
-
-            } else {
-                errorMessage = "Account does not exist!"
-                console.log(errorMessage)
-                res.set('Content-Type', 'text/plain')
-                res.send(errorMessage)
-
-                // testing for to make sure names can still be sent
-                // req.session.username = errorMessage
             }
         }, (error) => {
             console.log(error)
+            res.set('Content-Type', 'text/plain')
+            res.send(errorMessage)
+
+            // testing for to make sure names can still be sent
+            // req.session.username = errorMessage
         })
     }
 })
