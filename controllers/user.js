@@ -39,7 +39,7 @@ router.post("/signup", (req, res) => {
         req.session.username = user.username
         res.redirect("/")
     }, (error) => {
-        res.render("signup",{
+        res.render("signup", {
             error
         })
     })
@@ -55,34 +55,17 @@ router.post("/login", (req, res) => {
     console.log("post login " + req.body.username)
     console.log("post login " + user)
 
-    if(!req.body.username){//res.send can send text
-        errorMessage = "Please input a username"
-        console.log(errorMessage)
-        res.set('Content-Type', 'text/plain')
-        res.send(errorMessage)
-    } else if (!req.body.password) {
-        errorMessage = "Please input a password"
-        console.log(errorMessage)
-        res.set('Content-Type', 'text/plain')
-        res.send(errorMessage)
-    } else{
-        User.authenticate(user).then((newUser) => {
-            console.log("authenticate " + newUser)
-            if (newUser) {
-                console.log("hello")
-                req.session.username = user.username
-                // res.render and res.redirect does not work with ajax, both send html block which would only be read as text
-                // res.render("home", {
-                //     username: user.username
-                // })
-                res.redirect("/")
-            }
-        }, (error) => {
-            errorMessage = error.message
-            res.set('Content-Type', 'text/plain')
-            res.send(errorMessage)
+    User.authenticate(user).then((newUser) => {
+        console.log("authenticate " + newUser)
+        if (newUser) {
+            req.session.username = newUser.username
+            res.redirect("/")
+        }
+    }, (error) => {
+        res.render("login", {
+            error
         })
-    }
+    })
 })
 
 
