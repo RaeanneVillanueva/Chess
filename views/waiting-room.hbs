@@ -1,0 +1,56 @@
+<html>
+
+    <head>
+
+        <script src="/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+        <link rel="stylesheet" href="/css/waiting-room.css">
+        <link rel="stylesheet" href="/libraries/animate.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+            <div class= " nav">
+
+                <a class="nav-a hvr-grow" href="">{{username}}</a>
+                <a class="nav-a hvr-grow" href="">Rooms</a>
+                <a class="nav-a hvr-grow" href="">Home</a>
+                <a class="nav-a active hvr-grow" href="">Play</a>
+            </div>
+        </div>
+        
+
+        <div class="mainpage">
+            <div class="waiting-div">
+                {{!-- <div class="room-name"><span class="name">Room name</span></div> --}}
+                <div class="room-name"><span class="name">{{room-name}}</span></div>
+
+
+                <div class="info">
+                    {{!-- <span class="my-info">Andrew</span> --}}
+                    <span class="my-info">{{username}}</span>
+                    <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span>
+                </div>
+
+                <div class="opponent">
+                    {{!-- <span class="opponent-info">Waiting For Another Player...</span> --}}
+                    <span class="opponent-info">{{opponent-status}}</span>
+                    <span class="opponent-info" id="opp-rank"> Rank: <span class="opponent-info" id="rank"></span>{{opponent-rank}}</span>
+                </div>
+                <br>
+
+                <a href="" class="exit-game">Exit</a>
+                <a href="" class="start-game">Start Game!</a>
+                
+            </div>
+
+        </div>
+
+    </body>
+</html>
