@@ -4,7 +4,7 @@ const User = require("../models/user")
 const bodyparser = require("body-parser")
 
 const app = express()
-
+const rooms = {}
 const urlencoder = bodyparser.urlencoded({
     extended: true
 })
@@ -19,6 +19,22 @@ router.get("/", function(req,res){
     }else{
         res.redirect("/")
     }
+})
+
+router.post("/room", function(req,res){
+    if(rooms[req.body.room] != null){
+        return res.redirect("/rooms")
+    }
+
+    rooms[req.body.room] = {users:{}}
+    res.redirect("/rooms/" + req.body.room)
+})
+
+router.get("/:room", function(req,res){
+    if(rooms[req.params.room] == null){
+        return res.redirect("/rooms")
+    }
+    res.render('room', {roomName: req.params.room})
 })
 
 module.exports = router;
