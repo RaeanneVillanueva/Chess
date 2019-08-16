@@ -32,7 +32,31 @@
                     <img class="profile-img" src="../img/pagelogo.png" alt="">
                     <div class="profile-description">
                         <a class="settings" href="/logout">Log Out</a>                            
-                        <a class="settings" href="">Edit</a>
+                        {{!-- <a class="settings" href="">Edit</a> --}}
+
+                        <label class="settings">
+                            <input type="checkbox" class="trigger">
+                            <div class="overlay">
+                                <form class="edit-profile">
+                                    <div class="header"><span class="name">Edit Profile</span></div>
+                                    <div class="input">
+                                        <input class="input-box" type="text" placeholder="Edit Username">
+                                        <input class="input-box" type="text" placeholder="Change Password">
+                                        <br>
+                                        <a href="" class="delete-acc">Delete Account</a>
+                                        <br><br><br>
+                                        <a href="" class="cancel-edit">Cancel</a>
+                                        <a href="" class="edit">Edit</a>
+                                    </div>
+                                </form>
+                            </div>
+                            Edit
+                        </label>
+
+
+
+
+
                         <a class="username">{{username}}</a>
                         <br><br>
                         <span class="details-lbl">Rate: </span>
