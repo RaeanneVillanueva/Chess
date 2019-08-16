@@ -62,25 +62,6 @@
         <script src="/libraries/chessboard-1.0.0.min.js"></script>
         <script src="/libraries/chess.min.js"></script>
         <script src="/js/online.js"></script>
-        <script>
-            $(document).ready(function(){
-                $("#btn-newgame").click(function(){
-                    $.ajax({
-                        url: "/play/online",
-                        success: function(data){
-                            window.location.href = "/play/online"
-                        }
-                    })
-                })
-                $("#btn-exit").click(function(){
-                    $.ajax({
-                        url: "/",   
-                        success: function(data){
-                            window.location.href = "/"
-                        }
-                    })
-                })
-            })
-        </script>
+        <script src="/js/gametool.js"></script>
     </body>
 </html>
