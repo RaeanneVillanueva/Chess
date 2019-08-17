@@ -32,16 +32,16 @@
                 <div class="header"><span class="header-lbl">Available Rooms</span></div>
 
                 <div class="room-divs">
+                    {{#each rooms}}
                     <div class="room">
                         <div class="room-details">
-                            <span class="room-name">Let's play!!!</span>
-                            {{!-- <span class="room-name">{{room-name}}</span> --}}
-                            <span class="created-by">Created By: <a href="" class="owner">Andrew</a></span>
+                            <span class="room-name">{{@key}}</span>
+                            {{!-- <span class="created-by">Created By: <a href="" class="owner">Andrew</a></span> --}}
                             {{!-- <span class="created-by">Created By: <a href="" class="owner">{{username}}</a></span> --}}
                         </div>
-                        <a href="" class="join">Join</a>
+                        <a href="/rooms/{{@key}}" class="join">Join</a>
                     </div>
-
+                    {{/each}}
                 </div>
                 
                 <div class="create-room">
@@ -50,15 +50,15 @@
                     <label class = "create-btn">
                         <input type="checkbox" class= "trigger">
                         <div class="overlay">
-                            <form class="create-form">
+                            <form action="/rooms/room" method="POST" class="create-form">
                                 <div class="room-name"><span class="name">Create Room</span></div>
                 
                                 <div class="input">
-                                    <input class="input-box" type="text" placeholder="Enter the room name ...">
+                                    <input class="input-box" type="text" name="room" placeholder="Enter the room name ...">
                                 </div>
                 
                                 <a href="" class="cancel-game">Cancel</a>
-                                <a href="" class="create-game">Create Room</a>
+                                <input type="submit" value="Create Room" class="create-game">
                             </form>
                         </div>
                         Create Room

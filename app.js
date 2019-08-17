@@ -33,34 +33,34 @@ app.use(require("./controllers"))
 
 const users = {};
 
-io.on('connection', function (socket) {
-    console.log(socket.id + " has connected")
+// io.on('connection', function (socket) {
+//     console.log(socket.id + " has connected")
 
-    socket.on('new-user', (room, name) => {
-        socket.join(room)
-        rooms[room].users[socket.id] = name
-        socket.to(room).broadcast.emit('user-connected', name)
-    })
+//     socket.on('new-user', (room, name) => {
+//         socket.join(room)
+//         rooms[room].users[socket.id] = name
+//         socket.to(room).broadcast.emit('user-connected', name)
+//     })
 
-    socket.on("send_user_ready", function (data) {
-        socket.to(room).broadcast.emit("user_ready", { message: message, name: rooms[room].users[socket.id] })
-    })
+//     socket.on("send_user_ready", function (data) {
+//         socket.to(room).broadcast.emit("user_ready", { message: message, name: rooms[room].users[socket.id] })
+//     })
 
-    socket.on('disconnect', () => {
-        getUserRooms(socket).forEach(room => {
-            socket.to(room).broadcast.emit('user-disconnected', rooms[room].users[socket.id])
-            delete rooms[room].users[socket.id]
-        })
-    })
+//     socket.on('disconnect', () => {
+//         getUserRooms(socket).forEach(room => {
+//             socket.to(room).broadcast.emit('user-disconnected', rooms[room].users[socket.id])
+//             delete rooms[room].users[socket.id]
+//         })
+//     })
 
-})
+// })
 
-function getUserRooms(socket) {
-    return Object.entries(rooms).reduce((names, [name, room]) => {
-        if (room.users[socket.id] != null) names.push(name)
-        return names
-    }, [])
-}
+// function getUserRooms(socket) {
+//     return Object.entries(rooms).reduce((names, [name, room]) => {
+//         if (room.users[socket.id] != null) names.push(name)
+//         return names
+//     }, [])
+// }
 
 http.listen(3000, function (req, res) {
     console.log("port 3000 is listening...");

@@ -14,6 +14,7 @@ router.use(urlencoder)
 router.get("/", function(req,res){
     if(req.session.username){
         res.render("rooms", {
+            rooms,
             username: req.session.username
         })
     }else{
@@ -27,14 +28,15 @@ router.post("/room", function(req,res){
     }
 
     rooms[req.body.room] = {users:{}}
-    res.redirect("/rooms/" + req.body.room)
+    console.log(req.body.room)
+    res.redirect("/rooms")
 })
 
 router.get("/:room", function(req,res){
     if(rooms[req.params.room] == null){
         return res.redirect("/rooms")
     }
-    res.render('room', {roomName: req.params.room})
+    res.render('waiting-room', {"room-name": req.params.room, username: req.session.username})
 })
 
 module.exports = router;
