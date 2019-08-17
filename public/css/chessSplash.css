@@ -86,6 +86,12 @@ h1 {
     font-family: poiret;
     font-size: 11pt;
     outline: none;
+    cursor: pointer;
+}
+
+.playbtn:hover {
+    font-weight: bold;
+    background-color: #1D704E;    
 }
 
 .gameplaydiv {
@@ -107,6 +113,11 @@ h1 {
     text-decoration: none;
     font-family: poiret;
     font-size: 10pt;
+}
+
+.gameplaybtn:hover {
+    font-weight: bold;
+    background-color: #1D704E;
 }
 
 .chessboard {

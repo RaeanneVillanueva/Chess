@@ -68,13 +68,19 @@ a {
     width: 70px;
     margin: 20px;
     outline: none;
+    cursor: pointer;
 }
 
 .loginbtn:hover {
     background-color: #1D704E;
+    font-weight: bold;
 }
 
-.login {
+.back {
     font-size: 10pt;
     color: yellow;
+}
+
+.back:hover {
+    font-weight: bold;
 }
