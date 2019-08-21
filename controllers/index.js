@@ -1,6 +1,5 @@
 const express = require("express")
 const router = express.Router()
-const app = express()
 
 router.use("/user", require("./user"))
 router.use("/play", require("./play"))
