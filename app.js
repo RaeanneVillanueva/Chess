@@ -1,8 +1,10 @@
 var express = require("express")
 const bodyparser = require("body-parser")
 const app = express()
+
 var http = require('http').Server(app);
 const io = require("socket.io")(http);
+
 
 const session = require("express-session")
 const urlencoder = bodyparser.urlencoded({
@@ -29,10 +31,7 @@ app.use(session({
 }))
 app.use(cookieparser())
 app.use(require("./controllers"))
-
-
-const users = {};
-
+app.io = io
 // io.on('connection', function (socket) {
 //     console.log(socket.id + " has connected")
 
@@ -65,4 +64,3 @@ const users = {};
 http.listen(3000, function (req, res) {
     console.log("port 3000 is listening...");
 })
-

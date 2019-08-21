@@ -16,9 +16,7 @@ var userSchema = mongoose.Schema({
     salt: String,
     elo: Number,
     wins: Number,
-    loses: Number,
-    following: [{ type: mongoose.Schema.ObjectId, ref: 'chessuser' }],
-    followers: [{ type: mongoose.Schema.ObjectId, ref: 'chessuser' }],
+    loses: Number
 })
 
 userSchema.pre("save", function (next) {

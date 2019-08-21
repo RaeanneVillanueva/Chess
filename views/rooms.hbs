@@ -1,73 +1,72 @@
 <html>
 
-    <head>
-        <script src="/libraries/jquery.js"></script>
-        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
-        <link rel="stylesheet" href="/css/rooms.css">
-        <link rel="stylesheet" href="/libraries/animate.css">
-        <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
-        <script src="/socket.io/socket.io.js"></script>
+<head>
+    <script src="/libraries/jquery.js"></script>
+    <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+    <link rel="stylesheet" href="/css/rooms.css">
+    <link rel="stylesheet" href="/libraries/animate.css">
+    <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
 
-        <script src="/js/socketscript.js"></script>
 
-        <title>Chess Game</title>
-    </head>
+    <title>Chess Game</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="navbar">
-            <img src="../img/logo.png" width="40" height="40">
-            <span class="logoname">chess</span>
-            <div class= " nav">
+    <div class="navbar">
+        <img src="../img/logo.png" width="40" height="40">
+        <span class="logoname">chess</span>
+        <div class=" nav">
 
-                <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
-                <a class="nav-a active hvr-grow" href="/rooms">Rooms</a>
-                <a class="nav-a hvr-grow" href="/">Home</a>
-                <a class="nav-a hvr-grow" href="/play">Play</a>
-            </div>
+            <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+            <a class="nav-a active hvr-grow" href="/rooms">Rooms</a>
+            <a class="nav-a hvr-grow" href="/">Home</a>
+            <a class="nav-a hvr-grow" href="/play">Play</a>
         </div>
+    </div>
 
-        <div class="mainpage">
-            <div class="available">
-                <div class="header"><span class="header-lbl">Available Rooms</span></div>
+    <div class="mainpage">
+        <div class="available">
+            <div class="header"><span class="header-lbl">Available Rooms</span></div>
 
-                <div class="room-divs">
-                    {{#each rooms}}
-                    <div class="room">
-                        <div class="room-details">
-                            <span class="room-name">{{@key}}</span>
-                            {{!-- <span class="created-by">Created By: <a href="" class="owner">Andrew</a></span> --}}
-                            {{!-- <span class="created-by">Created By: <a href="" class="owner">{{username}}</a></span> --}}
-                        </div>
-                        <a href="/rooms/{{@key}}" class="join">Join</a>
+            <div id="roomContainer" class="room-divs">
+                {{#each rooms}}
+                <div class="room">
+                    <div class="room-details">
+                        <span class="room-name">{{@key}}</span>
+                        {{!-- <span class="created-by">Created By: <a href="" class="owner">Andrew</a></span> --}}
+                        {{!-- <span class="created-by">Created By: <a href="" class="owner">{{username}}</a></span> --}}
                     </div>
-                    {{/each}}
+                    <a href="/rooms/{{@key}}" class="join">Join</a>
                 </div>
-                
-                <div class="create-room">
-                    <a href="" class="refresh-btn">Refresh</a>
-                    
-                    <label class = "create-btn">
-                        <input type="checkbox" class= "trigger">
-                        <div class="overlay">
-                            <form action="/rooms/room" method="POST" class="create-form">
-                                <div class="room-name"><span class="name">Create Room</span></div>
-                
-                                <div class="input">
-                                    <input class="input-box" type="text" name="room" placeholder="Enter the room name ...">
-                                </div>
-                
-                                <a href="" class="cancel-game">Cancel</a>
-                                <input type="submit" value="Create Room" class="create-game">
-                            </form>
-                        </div>
-                        Create Room
-                    </label>
-                </div>
-
+                {{/each}}
             </div>
-        </div>
 
-    </body>
+            <div class="create-room">
+                <a href="" class="refresh-btn">Refresh</a>
+
+                <label class="create-btn">
+                    <input type="checkbox" class="trigger">
+                    <div class="overlay">
+                        <form action="/rooms/room" method="POST" class="create-form">
+                            <div class="room-name"><span class="name">Create Room</span></div>
+
+                            <div class="input">
+                                <input class="input-box" type="text" name="room" placeholder="Enter the room name ...">
+                            </div>
+
+                            <a href="" class="cancel-game">Cancel</a>
+                            <input type="submit" value="Create Room" class="create-game">
+                        </form>
+                    </div>
+                    Create Room
+                </label>
+            </div>
+
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/socketscript.js"></script>
+</body>
 
 </html>

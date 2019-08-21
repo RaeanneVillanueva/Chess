@@ -59,6 +59,7 @@ router.post("/login", (req, res) => {
         console.log("authenticate " + newUser)
         if (newUser) {
             req.session.username = newUser.username
+            req.session.user = newUser
             res.redirect("/")
         }
     }, (error) => {
