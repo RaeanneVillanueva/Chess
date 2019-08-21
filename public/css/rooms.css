@@ -159,13 +159,13 @@ div.room {
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    width: 85%;
 }
 
 .room-name {
     font-size: 18pt;
     font-weight: bold;
     margin: 10px;
-    
 }
 
 span.created-by {
@@ -191,7 +191,6 @@ a.join {
     font-size: 13pt;
     align-self: center;
     padding: 5px 18px;
-    
     background-color: rgba(162, 224, 115, 0.5);
     border-radius: 10px;
 }
