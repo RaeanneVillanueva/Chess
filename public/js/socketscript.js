@@ -7,7 +7,10 @@ if (!roomContainer.length) {
     socket.emit("new-user", room, name)
     readyButton.on("click", function(){
         socket.emit("send-user-ready", room)
+        readyButton.attr("disabled", true)
     })
+
+
 }
 
 //in room
@@ -31,12 +34,18 @@ socket.once('user-connected', (name) => {
     
 })
 
-socket.once('user-ready', data => {
-    console.log("USER IS READY ")
+socket.on('user-ready', () => {
+    console.log("USER IS READY")
 })
 
+socket.on('room-destroyed', room =>{
+    console.log("DESTROYED ROOM " + room)
+    $("div." + room).remove()
+})
 
 socket.once('user-disconnected', name => {
     console.log("USER LEEFFT")
+    $("#p2Name").text("");
+    readyButton.attr("disabled", false)
 })
 
