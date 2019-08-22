@@ -1,68 +1,82 @@
 <html>
 
-    <head>
+<head>
 
-        <script src="http://localhost:3000/libraries/jquery.js"></script>
-        <link rel="shortcut icon" type="image/png" href="http://localhost:3000/img/pagelogo.png">
-        <link rel="stylesheet" href="http://localhost:3000/css/online-mode.css">
-        <link rel="stylesheet" href="http://localhost:3000/libraries/animate.css">
-        <link rel="stylesheet" href="http://localhost:3000/libraries/chessboard-1.0.0.min.css">
-        <title>Chess Game</title>
-    </head>
+    <script src="http://localhost:3000/libraries/jquery.js"></script>
+    <link rel="shortcut icon" type="image/png" href="http://localhost:3000/img/pagelogo.png">
+    <link rel="stylesheet" href="http://localhost:3000/css/online-mode.css">
+    <link rel="stylesheet" href="http://localhost:3000/libraries/animate.css">
+    <link rel="stylesheet" href="http://localhost:3000/libraries/chessboard-1.0.0.min.css">
+    <title>Chess Game</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="navbar">
+    <div class="navbar">
+
+        <img class="logo" src="http://localhost:3000/img/logo.png" width="40" height="40">
+        <span class="logoname">chess</span>
+        <div class=" nav">
+
+            <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+            <a class="nav-a hvr-grow" href="/">About Us</a>
+            <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
+            <a class="nav-a active hvr-grow" href="/play">Play</a>
+        </div>
+    </div>
+
+
+    <div class="mainpage">
+
+        <div id="onlinechessboard" style="display: none"class="chessboard">CHESSBOARD</div>
+
+        <div class="players">
+
+            <div class="opponent">
+                <span id="p2Name" class="opponent-info">{{player2}}</span>
+                <span class="ready-player2" style="display:none"> Ready</span>
+                {{!-- <span class="opponent-info">{{opponent-username}}</span> --}}
+                {{!-- <span class="opponent-info" id="rank">Rank: <span class="opponent-info" id="rank">1200</span></span> --}}
+                {{!-- <span class="opponent-info" id="rank">Rank: <span class="opponent-info" id="rank">{{opponent-elo}}</span></span> --}}
+            </div>
             
-            <img class="logo" src="http://localhost:3000/img/logo.png" width="40" height="40">
-            <span class="logoname">chess</span>
-            <div class= " nav">
-
-                <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
-                <a class="nav-a hvr-grow" href="/">About Us</a>
-                <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
-                <a class="nav-a active hvr-grow" href="/play">Play</a>
+            <div id="prepare">
+                <a href="/rooms" class="exit-game">Exit</a>
+                <button id="readyButton" class="start-game">Ready</button>
             </div>
-        </div>
-        
 
-        <div class="mainpage">
-
-            <div id="onlinechessboard" class="chessboard">CHESSBOARD</div>
-
-            <div class="players">
-
-                <div class="opponent">
-                    <span class="opponent-info">{{opponent}}</span>
-                    {{!-- <span class="opponent-info">{{opponent-username}}</span> --}}
-                    <span class="opponent-info" id="rank">Rank: <span class="opponent-info" id="rank">1200</span></span>
-                            {{!-- <span class="opponent-info" id="rank">Rank: <span class="opponent-info" id="rank">{{opponent-elo}}</span></span> --}}
+            <div style="display:none" id="tools" class="tools">
+                <div id="btn-newgame" class="tool-btn">
+                    <img src="http://localhost:3000/img/new-game.png" alt="" class="tool-img">
+                    <span class="tool-lbl">New Game</span>
                 </div>
 
-                <div class="tools">
-                    <div id="btn-newgame" class="tool-btn">
-                        <img src="http://localhost:3000/img/new-game.png" alt="" class="tool-img">
-                        <span class="tool-lbl">New Game</span>
-                    </div>
-
-                    <div id="btn-exit" class="tool-btn">
-                        <img src="http://localhost:3000/img/exit.png" alt="" class="tool-img">
-                        <span class="tool-lbl">Exit Room</span>
-                    </div>
-                </div>
-                
-
-                <div class="my-profile">
-                    <span class="my-info">{{username}}</span>
-                    <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span>
+                <div id="btn-exit" class="tool-btn">
+                    <img src="http://localhost:3000/img/exit.png" alt="" class="tool-img">
+                    <span class="tool-lbl">Exit Room</span>
                 </div>
             </div>
 
+            <div class="my-profile">
+                <span id="p1Name" class="my-info">{{player1}}</span>
+                <span class="ready-player1" style="display:none"> Ready</span>
+                {{!-- <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span> --}}
+            </div>
         </div>
-        <script src="/libraries/chessboard-1.0.0.min.js"></script>
-        <script src="/libraries/chess.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/js/online.js"></script>
-        <script src="/js/gametool.js"></script>
-    </body>
+
+    </div>
+    <script>
+        const room = "{{roomName}}"
+        const name = "{{username}}"
+    </script>
+
+    <script src="/libraries/chessboard-1.0.0.min.js"></script>
+    <script src="/libraries/chess.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/gametool.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/socketscript.js"></script>
+    <script src="/js/online.js"></script>
+</body>
+
 </html>

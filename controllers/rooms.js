@@ -30,10 +30,11 @@ router.post("/room", urlencoder, function (req, res) {
     if (rooms[req.body.room] != null) {
         return res.redirect("/rooms")
     }
+    var room = req.body.room.replace("\'","");
 
-    rooms[req.body.room] = { users: {}, ready: 0 }
-    req.app.io.emit('room-created', req.body.room)
-    res.redirect("/rooms/" + req.body.room + "/#host")
+    rooms[room] = { users: {}, ready: 0 }
+    req.app.io.emit('room-created', room)
+    res.redirect("/rooms/" + room + "/#host")
 })
 
 router.get("/:room", function (req, res) {
@@ -49,8 +50,8 @@ router.get("/:room", function (req, res) {
             p2 = x
         }
     }
-
-    res.render('waiting-room', {roomName: req.params.room,
+    console.log(users[p2])
+    res.render('online-mode', {roomName: req.params.room,
                                 username: req.session.username,
                                 player1: req.session.username,
                                 player2: users[p2]})
@@ -61,6 +62,7 @@ router.get("/:room", function (req, res) {
         socket.once('new-user', (room, name) => {
             socket.join(room)
             rooms[room].users[socket.id] = name
+            console.log(socket.id + " joined " + room)
             socket.to(room).broadcast.emit('user-connected', name)
         })
 
@@ -104,13 +106,18 @@ router.get('/game/:room', function (req, res){
     games[req.params.room] = {users}
     res.render("online-mode", {
         username: req.session.username,
-        opponent: users[p2]
+        opponent: users[p2],
+        room: req.params.room
     })
 
     req.app.io.once("connection", function(socket){
-        console.log("User connected")
-        socket.once("move", move =>{
-            console.log("MOVEdd")
+        socket.once('new-user', (room, name) => {
+            socket.join(room + "game")
+            console.log(socket.id + "user joined " + room)
+        })
+        socket.once("move", (room, move) =>{
+            console.log(move)
+            socket.to(room).broadcast.emit('oppmove', move)
         })
     })
 })

@@ -3,6 +3,8 @@ const socket = io('http://localhost:3000')
 const roomContainer = $('#roomContainer')
 const readyButton = $("#readyButton")
 //in waiting room
+console.log(roomContainer.length)
+
 if (!roomContainer.length) {
     socket.emit("new-user", room, name)
     
@@ -14,8 +16,7 @@ if (!roomContainer.length) {
         readyButton.attr("disabled", true)
         readyButton.on("click", function(){
             socket.emit("send-user-ready", room)
-            console.log("GAME START");
-            window.location.href = "/rooms/game/" + room + "/#host"
+            gameStart()
         })
     }else{
         $(".ready-player2").show()
@@ -46,7 +47,6 @@ if (roomContainer.length) {
 socket.once('user-connected', (name) => {
     var p2Name = $("#p2Name")
     p2Name.text(name);
-    
 })
 
 socket.on('user-ready', () => {
@@ -70,7 +70,16 @@ socket.once('user-disconnected', name => {
 })
 
 socket.once("start-game", (room)=>{
-    socket.emit("send-user-ready", room)
-    console.log("GAME START");
-    window.location.href = "/rooms/game/" + room
+    gameStart()
+    // socket.emit("send-user-ready", room)
+    // window.location.href = "/rooms/game/" + room
 })
+
+function gameStart(){
+    console.log("GAME START");
+    $("#tools").show()
+    $("#onlinechessboard").show()
+    $("#prepare").hide()
+    $(".ready-player1").hide()
+    $(".ready-player2").hide()
+}

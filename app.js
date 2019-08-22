@@ -18,7 +18,9 @@ mongoose.Promise = global.Promise
 //     useNewUrlParser: true
 // })
 
-mongoose.connect("mongodb+srv://raeanne20:1234@cluster0-x83yc.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://raeanne20:1234@cluster0-x83yc.mongodb.net/test?retryWrites=true&w=majority",{
+    useNewUrlParser: true
+})
 
 
 app.set("view engine", "hbs")

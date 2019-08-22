@@ -2,14 +2,13 @@ var board = null
 var game = new Chess()
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
-const socket = io('http://localhost:3000')
 
 
-function removeGreySquares () {
+function removeGreySquares() {
   $('#onlinechessboard .square-55d63').css('background', '')
 }
 
-function greySquare (square) {
+function greySquare(square) {
   var $square = $('#onlinechessboard .square-' + square)
 
   var background = whiteSquareGrey
@@ -20,23 +19,23 @@ function greySquare (square) {
   $square.css('background', background)
 }
 
-function onDragStart (source, piece) {
+function onDragStart(source, piece) {
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
 
 
-  if(location.hash === '#host'){
-    if(piece.search(/^b/) !== -1 ){
+  if (location.hash === '#host') {
+    if (piece.search(/^b/) !== -1) {
       return false
     }
-  }else{
-    if(piece.search(/^w/) !== -1){
+  } else {
+    if (piece.search(/^w/) !== -1) {
       return false
     }
   }
 }
 
-function onDrop (source, target) {
+function onDrop(source, target) {
   removeGreySquares()
 
   // see if the move is legal
@@ -45,15 +44,17 @@ function onDrop (source, target) {
     to: target,
     promotion: 'q' // NOTE: always promote to a queen for example simplicity
   })
-  
-  socket.emit("move", move)
-  console.log("MOVED")
+
+
   // illegal move
   if (move === null) return 'snapback'
-  
+  else {
+    // socket.emit("move", room, move)
+    console.log("MOVED")
+  }
 }
 
-function onMouseoverSquare (square, piece) {
+function onMouseoverSquare(square, piece) {
   // get list of possible moves for this square
   var moves = game.moves({
     square: square,
@@ -72,11 +73,11 @@ function onMouseoverSquare (square, piece) {
   }
 }
 
-function onMouseoutSquare (square, piece) {
+function onMouseoutSquare(square, piece) {
   removeGreySquares()
 }
 
-function onSnapEnd () {
+function onSnapEnd() {
   board.position(game.fen())
 }
 
@@ -91,11 +92,17 @@ var config = {
 }
 
 board = Chessboard('onlinechessboard', config)
+// socket.emit("new-user", room)
 
-
-if(location.hash === "#host"){
+if (location.hash === "#host") {
   board.orientation('white')
-}else{
+} else {
   board.orientation('black')
 }
+
+// socket.on("oppmove", (move)=>{
+//   console.log("opponent moved "+ move)
+//   game.move(move)
+//   board.position(game.fen())
+// })
 
