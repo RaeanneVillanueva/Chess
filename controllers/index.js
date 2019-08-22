@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
     if (!req.session.username){
         res.render("index.hbs")
     }else{
-        res.render("home", {
+        res.render("aboutUs", {
             username: req.session.username
         })
     }
