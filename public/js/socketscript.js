@@ -5,12 +5,27 @@ const readyButton = $("#readyButton")
 //in waiting room
 if (!roomContainer.length) {
     socket.emit("new-user", room, name)
-    readyButton.on("click", function(){
-        socket.emit("send-user-ready", room)
+    
+    console.log(location.hash === "#host")
+    if(location.hash === "#host"){
+        $(".ready-player1").show()
+        $(".ready-player1").text("HOST")
+        readyButton.text("Opponent not ready")
         readyButton.attr("disabled", true)
-    })
-
-
+        readyButton.on("click", function(){
+            socket.emit("send-user-ready", room)
+            console.log("GAME START");
+            window.location.href = "/rooms/game/" + room + "/#host"
+        })
+    }else{
+        $(".ready-player2").show()
+        $(".ready-player2").text("HOST")
+        readyButton.on("click", function(){
+            readyButton.attr("disabled", true)
+            $(".ready-player1").show()
+            socket.emit("send-user-ready", room)
+        })
+    }
 }
 
 //in room
@@ -35,17 +50,27 @@ socket.once('user-connected', (name) => {
 })
 
 socket.on('user-ready', () => {
-    console.log("USER IS READY")
+    console.log("opponent ready")
+    $(".ready-player2").show()
+    readyButton.text("Start")
+    readyButton.attr("disabled", false)
 })
 
 socket.on('room-destroyed', room =>{
     console.log("DESTROYED ROOM " + room)
-    $("div." + room).remove()
+    $("div." + room ).remove()
 })
 
 socket.once('user-disconnected', name => {
     console.log("USER LEEFFT")
     $("#p2Name").text("");
     readyButton.attr("disabled", false)
+    $(".ready-player2").hide()
+
 })
 
+socket.once("start-game", (room)=>{
+    socket.emit("send-user-ready", room)
+    console.log("GAME START");
+    window.location.href = "/rooms/game/" + room
+})

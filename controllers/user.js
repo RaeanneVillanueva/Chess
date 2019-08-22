@@ -37,6 +37,7 @@ router.post("/signup", (req, res) => {
     User.create(user).then((user) => {
         console.log("successful " + user)
         req.session.username = user.username
+        req.session.user = user
         res.redirect("/")
     }, (error) => {
         res.render("signup", {

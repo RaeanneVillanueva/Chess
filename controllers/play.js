@@ -33,6 +33,8 @@ router.get("/online", function (req, res) {
 })
 
 router.get("/offline", function (req, res) {
+    console.log("GET /play/offline")
+
     if (req.session.username) {
         res.render("offline-mode", {
             username: req.session.username
@@ -43,6 +45,8 @@ router.get("/offline", function (req, res) {
 })
 
 router.get("/bot", function (req, res) {
+    console.log("GET /play/offline")
+
     if (req.session.username) {
         res.render("bot-mode", {
             username: req.session.username

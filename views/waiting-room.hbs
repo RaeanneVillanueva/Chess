@@ -19,8 +19,8 @@
         <div class=" nav">
 
             <a class="nav-a hvr-grow" href="">{{username}}</a>
-            <a class="nav-a hvr-grow" href="/">About Us</a>
             <a class="nav-a hvr-grow" href="">Rooms</a>
+            <a class="nav-a hvr-grow" href="">Home</a>
             <a class="nav-a active hvr-grow" href="">Play</a>
         </div>
     </div>
@@ -33,17 +33,15 @@
 
 
             <div class="info">
-<<<<<<< HEAD
-                <span id="p1Name" class="my-info">{{player1}}</span>
-=======
-                <div class="name"><span id="p1Name" class="my-info">{{username}}</span></div>
-                <span class="ready-player1"> Ready</span>
->>>>>>> 6969c03c79ad3aea64dbd850c702465fd834aebf
+                <div class="name"><span id="p1Name" class="my-info">{{player1}}</span></div>
+                {{!-- <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span> --}}
+                <span class="ready-player1" style="display:none"> Ready</span>
             </div>
 
             <div class="opponent">
                 <div class="name"><span id="p2Name" class="opponent-info">{{player2}}</span></div>
-                <span class="ready-player2"> Ready</span>
+                {{!-- <span class="opponent-info" id="opp-rank"> Rank: <span class="opponent-info" id="rank"></span>{{p2elo}}</span> --}}
+                <span class="ready-player2" style="display:none"> Ready</span>
             </div>
             <br>
 

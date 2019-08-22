@@ -101,19 +101,11 @@ exports.get = function (id) {
 exports.getByUsername = function (username) {
     return new Promise(function (resolve, reject) {
         User.findOne({
-            username: user.username
+            username: username
         }).then((user) => {
             resolve(user)
         }, (err) => {
             reject(err)
         })
     })
-}
-
-exports.getFollowers = function(user){
-    //get all followers of the user
-}
-
-exports.getFollowing = function(user){
-    //get all the people the user is following
 }

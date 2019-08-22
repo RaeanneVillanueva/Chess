@@ -2,6 +2,8 @@ var board = null
 var game = new Chess()
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
+const socket = io('http://localhost:3000')
+
 
 function removeGreySquares () {
   $('#onlinechessboard .square-55d63').css('background', '')
@@ -22,10 +24,15 @@ function onDragStart (source, piece) {
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
 
-  // or if it's not that side's turn
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-    return false
+
+  if(location.hash === '#host'){
+    if(piece.search(/^b/) !== -1 ){
+      return false
+    }
+  }else{
+    if(piece.search(/^w/) !== -1){
+      return false
+    }
   }
 }
 
@@ -38,11 +45,12 @@ function onDrop (source, target) {
     to: target,
     promotion: 'q' // NOTE: always promote to a queen for example simplicity
   })
-
+  
+  socket.emit("move", move)
+  console.log("MOVED")
   // illegal move
   if (move === null) return 'snapback'
-  console.log(board.position('fen'))
-  console.log(game.history())
+  
 }
 
 function onMouseoverSquare (square, piece) {
@@ -83,3 +91,11 @@ var config = {
 }
 
 board = Chessboard('onlinechessboard', config)
+
+
+if(location.hash === "#host"){
+  board.orientation('white')
+}else{
+  board.orientation('black')
+}
+
