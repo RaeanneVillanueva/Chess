@@ -1,0 +1,48 @@
+<html>
+
+    <head>
+        <script src="/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+        <link rel="stylesheet" href="/css/puzzle-levels.css">
+        <link rel="stylesheet" href="/libraries/animate.css">
+        <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+            <div class= " nav">
+                <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+                <a class="nav-a hvr-grow" href="/">About Us</a>
+                <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
+                <a class="nav-a hvr-grow active" href="/play">Play</a>
+
+            </div>
+        </div>
+        
+        <div class="mainpage">
+            <div class="header"><span class=label>Puzzle Levels</span></div>
+
+            <div class="levels">
+
+                {{#each puzzles}}
+                    <a class="level">
+                        <span id="name" class="puzzle-details">{{puzzle-name}}</span>
+                        <span id="difficulty" class="puzzle-details">{{difficulty}}</span>
+                    </a>
+                {{/each}}
+                
+            </div>
+
+        </div>
+
+    </body>
+
+    <script src=""></script>
+
+</html>
