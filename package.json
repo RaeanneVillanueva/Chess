@@ -2,7 +2,7 @@
   "name": "chess",
   "version": "1.0.0",
   "description": "chess mp for WEBAPDE",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "build": "browserify js/main.js -o public/js/bundle.js",
