@@ -49,7 +49,7 @@ function onDrop(source, target) {
   // illegal move
   if (move === null) return 'snapback'
   else {
-    // socket.emit("move", room, move)
+    socket.emit("move", room, move)
     console.log("MOVED")
   }
 }
@@ -100,9 +100,9 @@ if (location.hash === "#host") {
   board.orientation('black')
 }
 
-// socket.on("oppmove", (move)=>{
-//   console.log("opponent moved "+ move)
-//   game.move(move)
-//   board.position(game.fen())
-// })
+socket.on("move", (move)=>{
+  console.log("opponent moved "+ move)
+  game.move(move)
+  board.position(game.fen())
+})
 

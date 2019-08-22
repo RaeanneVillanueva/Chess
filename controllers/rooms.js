@@ -19,7 +19,7 @@ router.get("/", function (req, res) {
             rooms,
             username: req.session.username
         })
-        
+
     } else {
         res.redirect("/")
     }
@@ -30,7 +30,7 @@ router.post("/room", urlencoder, function (req, res) {
     if (rooms[req.body.room] != null) {
         return res.redirect("/rooms")
     }
-    var room = req.body.room.replace("\'","");
+    var room = req.body.room.replace("\'", "");
 
     rooms[room] = { users: {}, ready: 0 }
     req.app.io.emit('room-created', room)
@@ -51,11 +51,13 @@ router.get("/:room", function (req, res) {
         }
     }
     console.log(users[p2])
-    res.render('online-mode', {roomName: req.params.room,
-                                username: req.session.username,
-                                player1: req.session.username,
-                                player2: users[p2]})
-   
+    res.render('online-mode', {
+        roomName: req.params.room,
+        username: req.session.username,
+        player1: req.session.username,
+        player2: users[p2]
+    })
+
 
 
     req.app.io.once('connection', function (socket) {
@@ -88,10 +90,16 @@ router.get("/:room", function (req, res) {
                 }
             }
         })
+
+        socket.on('move', (room, move) => {
+            socket.to(room).broadcast.emit("move", move)
+
+        })
+
     })
 })
 
-router.get('/game/:room', function (req, res){
+router.get('/game/:room', function (req, res) {
     console.log("GET /rooms/game/" + req.params.room)
     if (rooms[req.params.room] == null) {
         return res.redirect("/")
@@ -103,20 +111,19 @@ router.get('/game/:room', function (req, res){
             p2 = x
         }
     }
-    games[req.params.room] = {users}
+    games[req.params.room] = { users }
     res.render("online-mode", {
         username: req.session.username,
         opponent: users[p2],
         room: req.params.room
     })
 
-    req.app.io.once("connection", function(socket){
+    req.app.io.once("connection", function (socket) {
         socket.once('new-user', (room, name) => {
             socket.join(room + "game")
             console.log(socket.id + "user joined " + room)
         })
-        socket.once("move", (room, move) =>{
-            console.log(move)
+        socket.once("move", (room, move) => {
             socket.to(room).broadcast.emit('oppmove', move)
         })
     })
