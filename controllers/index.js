@@ -8,7 +8,7 @@ router.use("/rooms", require("./rooms"))
 router.get("/", function (req, res) {
     console.log("GET /")
     if (!req.session.username){
-        res.render("index",{})
+        res.render("index.hbs")
     }else{
         res.render("home", {
             username: req.session.username
