@@ -11,11 +11,16 @@ const urlencoder = bodyparser.urlencoded({
     extended: false
 })
 const cookieparser = require("cookie-parser")
+
 const mongoose = require("mongoose")
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/chessusers", {
-    useNewUrlParser: true
-})
+// mongoose.connect("mongodb://localhost:27017/chessusers", {
+//     useNewUrlParser: true
+// })
+
+mongoose.connect("mongodb+srv://raeanne20:1234@cluster0-x83yc.mongodb.net/test?retryWrites=true&w=majority")
+
+
 app.set("view engine", "hbs")
 app.use(express.static(__dirname + "/public"));
 
