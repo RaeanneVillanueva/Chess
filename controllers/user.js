@@ -77,6 +77,39 @@ router.post("/login", (req, res) => {
     }
 })
 
+router.get("/edituser", (req, res) => {
+    console.log("GET /getuser " + req.query.id)
+    let id = req.query.id
+    User.get(id).then(user => {
+        res.render("edit-user", {
+            user
+        })
+    })
+})
+
+router.post("/edituser", function (req, res) {
+    console.log("POST /update")
+    let id = req.body.id
+    let username = req.body.username
+    let elo = req.body.elo
+    let wins = req.body.wins
+    let loses = req.body.loses
+    let draws = req.body.draws
+
+    var u = {
+        username,
+        elo,
+        wins,
+        loses,
+        draws
+    }
+
+    User.edit(id, u).then(user => {
+        console.log("Successfully edited")
+        res.redirect("/admin")
+    })
+})
+
 
 // always remember to export the router for index.js
 module.exports = router

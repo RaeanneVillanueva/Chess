@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/user")
+const Puzzle = require("../models/puzzle")
 
 const bodyparser = require("body-parser")
 const urlencoder = bodyparser.urlencoded({
@@ -16,7 +17,7 @@ router.get("/", function (req, res) {
     if (!req.session.username) {
         res.render("index.hbs")
     } else {
-        res.render("aboutUs", {
+        res.render("play", {
             username: req.session.username
         })
     }
@@ -29,7 +30,7 @@ router.get("/profile", function (req, res) {
             res.render("profile.hbs", {
                 username: req.session.username,
                 elo: user.elo,
-                gamesPlayed: user.wins + user.loses,
+                gamesPlayed: user.wins + user.loses + user.draws,
                 wins: user.wins,
                 loses: user.loses,
                 draws: user.draws
@@ -55,8 +56,12 @@ router.get("/admin", function (req, res) {
         res.redirect("/")
     } else {
         User.getAll().then((users) => {
-            res.render("admin", {
-                users: users
+            Puzzle.getAll().then((puzzles)=>{
+                res.render("admin", {
+                    users: users,
+                    puzzles: puzzles
+                })
+                
             })
         })
     }
@@ -70,38 +75,15 @@ router.post("/deleteuser", function (req, res) {
     })
 })
 
-router.get("/edituser", (req, res) => {
-    console.log("GET /getuser " + req.query.id)
-    let id = req.query.id
-    User.get(id).then(user => {
-        res.render("edit-user", {
-            user
-        })
-    })
-})
-
-router.post("/edituser", function (req, res) {
-    console.log("POST /update")
+router.post("/deletepuzzle", function(req,res){
     let id = req.body.id
-    let username = req.body.username
-    let elo = req.body.elo
-    let wins = req.body.wins
-    let loses = req.body.loses
-    let draws = req.body.draws
-
-    var u = {
-        username,
-        elo,
-        wins,
-        loses,
-        draws
-    }
-
-    User.edit(id, u).then(user => {
-        console.log("Successfully edited")
-        res.redirect("/admin")
+    console.log("POST /deletepuzzle " + id)
+    Puzzle.delete(id).then(doc =>{
+        res.send(doc)
     })
 })
+
+
 
 router.get("*", function (req, res) {
     res.send("Quiet out here (・_・) . . . Oh, we didn't find the page you were looking for . . . sorry")

@@ -56,11 +56,11 @@
                         </tbody>
 
                     </table>
-                    <form action="edituser" method="get" id="edit">
+                    <form action="/user/edituser" method="get" id="edit">
                         <input type="hidden" id="editid" name="id">
                     </form>
 
-                    <form action="deleteuser" method="post" id="delete">
+                    <form action="/user/deleteuser" method="post" id="delete">
                         <input type="hidden" id="deleteid" name="id">
                     </form>
                 </div>
@@ -70,22 +70,24 @@
                         <thead class="header">
                             <tr class="header">
                                 <th>Name</th>
-                                <th>String</th>
+                                <th>Fen</th>
                                 <th>Difficulty</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody class="tbl-body">
-
-                            {{!-- {{#each}}
-                                    <tr>
-                                        <td>{{puzzle-name}}</td>
-                                        <td>{{string}}</td>
+                        
+                            {{#each puzzles}}
+                                    <tr id={{_id}}>
+                                        <td>{{name}}</td>
+                                        <td>{{fen}}</td>
                                         <td>{{difficulty}}</td>
-                                        <td class="action"><a href="" class="action-btns">Edit</a><a href=""class="action-btns">Delete</button></a>
+                                        <td class="action">
+                                            {{!-- <a href="" class="action-btns">Edit</a> --}}
+                                        <button data-id ={{_id}} class="action-btns deletePuzzle">Delete</button>
                                     </tr>
-                               {{/each}}     --}}
+                            {{/each}}    
 
                         </tbody>
 

@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/puzzle-levels.css">
         <link rel="stylesheet" href="/libraries/animate.css">
         <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
-
+        <script src="/js/puzzle-level.js"></script>
         <title>Chess Game</title>
     </head>
 
@@ -31,13 +31,16 @@
             <div class="levels">
 
                 {{#each puzzles}}
-                    <a class="level">
+                    <a href="/puzzle/{{_id}}" data-id={{_id}} class="level">
                         <span id="name" class="puzzle-details">{{name}}</span>
                         <span id="difficulty" class="puzzle-details">{{difficulty}}</span>
                     </a>
                 {{/each}}
                 
             </div>
+            
+
+            </form>
 
         </div>
 

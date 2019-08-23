@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/user")
+const Puzzle = require("../models/puzzle")
 const bodyparser = require("body-parser")
 
 const app = express()
@@ -59,12 +60,29 @@ router.get("/bot", function (req, res) {
 
 router.get("/puzzle", function (req, res) {
     if (req.session.username) {
-        res.render("puzzle-levels", {
-            username: req.session.username
+        Puzzle.getAll().then((puzzles)=>{
+            res.render("puzzle-levels", {
+                username: req.session.username,
+                puzzles:puzzles
+            })
         })
     } else {
         res.redirect("/")
     }
+})
+
+router.get("/puzzle/:puzzle", function(req,res){
+    let id = req.params.puzzle
+
+    Puzzle.get(id).then(puzzle=>{
+        res.render("puzzle-mode",{
+            username: req.session.username,
+            fen: puzzle.fen,
+            moves: puzzle.moves
+        })
+    },err=>{
+        console.log(err)
+    })
 })
 
 

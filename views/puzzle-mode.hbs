@@ -52,11 +52,14 @@
 
                 <div class="my-profile">
                     <span class="my-info">{{username}}</span>
-                    <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span>
                 </div>
             </div>
 
         </div>
+        <script>
+            var fen = "{{fen}}"
+            var moves = "{{moves}}"
+        </script>
         <script src="/libraries/chessboard-1.0.0.min.js"></script>
         <script src="/libraries/chess.min.js"></script>
         <script src="/js/puzzle.js"></script>
