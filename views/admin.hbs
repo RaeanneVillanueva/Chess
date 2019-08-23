@@ -22,9 +22,9 @@
 
     <div class="mainpage">
         <div class="tabs">
-            <input id="tab1" type="radio" name="tabs" checked>
+            <input id="tab1" type="radio" name="tabs" >
             <label for="tab1">Users</label>
-            <input id="tab2" type="radio" name="tabs">
+            <input id="tab2" type="radio" name="tabs" checked>
             <label for="tab2">Puzzles</label>
 
             <div class="content">
@@ -69,33 +69,38 @@
                     </form>
                 </div>
 
+
                 <div id="puzzles">
-                    <table class="puzzles-table">
-                        <thead class="header">
-                            <tr class="header">
-                                <th>Name</th>
-                                <th>Fen</th>
-                                <th>Difficulty</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
 
-                        <tbody class="tbl-body">
-                        
-                            {{#each puzzles}}
-                                    <tr id={{_id}}>
-                                        <td>{{name}}</td>
-                                        <td>{{fen}}</td>
-                                        <td>{{difficulty}}</td>
-                                        <td class="action">
-                                            {{!-- <a href="" class="action-btns">Edit</a> --}}
-                                        <button data-id ={{_id}} class="action-btns deletePuzzle">Delete</button>
-                                    </tr>
-                            {{/each}}    
+                    <div class="puzzle-table">
+                        <table class="puzzles-table">
+                            <thead class="header">
+                                <tr class="header">
+                                    <th>Name</th>
+                                    <th>Fen</th>
+                                    <th>Difficulty</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
 
-                        </tbody>
+                            <tbody class="tbl-body">
+                            
+                                {{#each puzzles}}
+                                        <tr id={{_id}}>
+                                            <td>{{name}}</td>
+                                            <td>{{fen}}</td>
+                                            <td>{{difficulty}}</td>
+                                            <td class="action">
+                                                {{!-- <a href="" class="action-btns">Edit</a> --}}
+                                            <button data-id ={{_id}} class="action-btns deletePuzzle">Delete</button>
+                                        </tr>
+                                {{/each}}    
 
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                   
+    	            <a class="add-puzzle">Add Puzzle</a>
                 </div>
             </div>
 
