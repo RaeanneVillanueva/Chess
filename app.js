@@ -68,6 +68,10 @@ app.io = io
 //     }, [])
 // }
 
-http.listen(3000, function (req, res) {
-    console.log("port 3000 is listening...");
+// http.listen(3000, function (req, res) {
+//     console.log("port 3000 is listening...");
+// })
+
+http.listen(process.env.PORT || 3000, function(){
+    console.log("port 3000 is listening...")
 })
