@@ -111,12 +111,21 @@ socket.on("move", (move) => {
 
 function gameover(){
   
-    var win = true;
+    var win = 1;
     if ((board.orientation() == 'white' && game.turn() == 'w' && game.in_checkmate()) ||
         (board.orientation() == 'black' && game.turn() == 'b' && game.in_checkmate())) {
-      win = false
+      win = 0
+    }else if(game.in_draw() || game.in_stalemate() || game.in_threefold_repetition()){
+      win = 0.5
     }
     socket.emit("gameover", name, win)
-  
+    if(win == 1){
+      status = "won"
+    }else if(win == 0.5){
+      status = "drawed"
+    }else{
+      status = "lost"
+    }
+    alert("You " + status)
 }
 

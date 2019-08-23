@@ -33,7 +33,7 @@ router.post("/room", urlencoder, function (req, res) {
     }
     var room = req.body.room.replace("\'", "");
 
-    rooms[room] = { users: {}, ready: 0 }
+    rooms[room] = { users: {}, ready: 0, ingame: false }
     req.app.io.emit('room-created', room)
     res.redirect("/rooms/" + room + "/#host")
 })
@@ -108,15 +108,18 @@ router.get("/:room", function (req, res) {
 
         socket.on('gameover', function(name, win){
             User.getByUsername(name).then((user)=>{
-                if(win){
+                if(win == 1){
                     user.wins++
+                }else if(win == 0.5){
+                    user.draws++
                 }else{
                     user.loses++
                 }
                 User.edit(user).then(user=>{
-                    console.log("Updated wins/losses")
+                    console.log("Updated wins/losses/draws of " + user.username)
                 })
             })
+
         })
     })
 })
