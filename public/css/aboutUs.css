@@ -85,6 +85,10 @@ div.nav {
     background: #58AC8A;
 }
 
+.logo {
+    display: flex;
+}
+
 .sources {
     display: flex;
     flex-direction: column;
