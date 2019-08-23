@@ -1,0 +1,90 @@
+<html>
+
+    <head>
+        <script src="/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+        <link rel="stylesheet" href="/css/admin.css">
+        <link rel="stylesheet" href="/libraries/animate.css">
+        <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess admin</span>
+        </div>
+
+
+        <div class="mainpage">
+            <div class="tabs">
+                <input id="tab1" type="radio" name="tabs" checked>
+                <label for="tab1">Users</label>
+                <input id="tab2" type="radio" name="tabs">
+                <label for="tab2">Puzzles</label>
+                
+                <div class="content">
+                    <div id="users">
+                       <table class= "users-table">
+                            <thead class="header">
+                                <tr>
+                                    <th>Username</th>
+                                    <th>ELO</th>
+                                    <th>Wins</th>
+                                    <th>Lose</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="tbl-body">
+                                {{#each user}}
+                                    <tr>
+                                        <td>{{username}}</td>
+                                        <td>{{elo}}</td>
+                                        <td>{{wins}}</td>
+                                        <td>{{lose}}</td>
+                                        <td class="action"><a href="" class="action-btns">Edit</a><a href=""class="action-btns">Delete</button></a>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                            
+
+                       </table>
+
+                    </div>
+                
+                    <div id="puzzles">
+                        <table class= "puzzles-table">
+                            <thead class="header">
+                                <tr class="header">
+                                    <th>Name</th>
+                                    <th>String</th>
+                                    <th>Difficulty</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="tbl-body">
+
+                               {{#each}}
+                                    <tr>
+                                        <td>{{puzzle-name}}</td>
+                                        <td>{{string}}</td>
+                                        <td>{{difficulty}}</td>
+                                        <td class="action"><a href="" class="action-btns">Edit</a><a href=""class="action-btns">Delete</button></a>
+                                    </tr>
+                               {{/each}}    
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+    </body>
+</html>
