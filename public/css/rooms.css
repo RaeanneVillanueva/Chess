@@ -74,6 +74,7 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
+    outline: none;
 }
 
 .nav-a:hover {
@@ -193,6 +194,8 @@ a.join {
     padding: 5px 18px;
     background-color: rgba(162, 224, 115, 0.5);
     border-radius: 10px;
+    outline: none;
+
 }
 
 
@@ -224,6 +227,8 @@ div.create-room {
     font-family: poiret;
     color: white;
     cursor: pointer;
+    outline: none;
+
 }
 
 a.refresh-btn {
@@ -234,6 +239,7 @@ a.refresh-btn {
     padding: 5px 18px;
     background-color: #58AC8A;
     border-radius: 10px;
+    outline: none;
 }
 
 a.refresh-btn:hover, .create-btn:hover {
@@ -339,6 +345,8 @@ div.room-name {
     border-radius: 10px;
 
     cursor: pointer;
+    outline: none;
+
 }
 
 .cancel-game {
@@ -354,6 +362,7 @@ div.room-name {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    outline: none;
 
 }
 

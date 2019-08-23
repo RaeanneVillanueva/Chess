@@ -79,7 +79,7 @@ div.nav {
     font-weight: lighter;
     float: right;
     margin-right: 10px;
-
+    outline: none;
 }
 
 .nav-a:hover {
@@ -182,6 +182,7 @@ div.tools {
     border-radius: 5px;
     cursor: pointer;
     align-items: center;
+    outline: none;
 }
 
 .tool-btn:hover {
