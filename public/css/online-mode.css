@@ -35,7 +35,7 @@ body {
 }
 
 
-img.tool-img, img.logo {
+img.tool-img, img.img-logo {
     margin: 0;  
     padding-top: 15px;  
 }
@@ -139,6 +139,7 @@ div.opponent {
     border-radius: 5px;
     margin: 5px;
     background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 10%;
 }
 
 .opponent-info {
@@ -208,6 +209,8 @@ div.my-profile {
     border-radius: 5px;
     margin: 5px;
     background-color: rgba(255, 255, 255, 0.1);
+    border: 1px white solid;
+    margin-top: 10%;
 }
 
 .my-info {
@@ -233,12 +236,13 @@ div.my-profile {
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    margin-top: 10%;
 }
 
 #readyButton {
     border: 1px white solid;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     margin: 5px;
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -255,7 +259,7 @@ div.my-profile {
 .exit-game {
     font-size: 13pt;
     border: 1px solid white;
-    padding: 5px 10px;
+    padding: 5px 20px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.1);
     cursor:pointer;
