@@ -24,14 +24,20 @@
         <div class="edit-div">
             <div class="header"><span class="label">Edit Data</span></div>
             <form action="edituser" method="POST" class="input" autocomplete="off">
-                username:
-                <input class="input-box" name="username" type="text" value="{{user.username}}"
-                    placeholder="Edit Username">
-                
-                <input class="input-box" name="elo" type="text" value="{{user.elo}}" placeholder="Change ELO">
-                <input class="input-box" name="wins" type="text" value="{{user.wins}}" placeholder="Change Wins">
-                <input class="input-box" name="loses" type="text" value="{{user.loses}}" placeholder="Change Loses">
-                <input class="input-box" name="draws" type="text" value="{{user.draws}}" placeholder="Change Draws">
+                <span class="lbl">Username</span>
+                <input class="input-box" name="username" type="text" value="{{user.username}}">
+                <br>
+                <span class="lbl">ELO</span>
+                <input class="input-box" name="elo" type="text" value="{{user.elo}}">
+                <br>                
+                <span class="lbl">Wins</span>
+                <input class="input-box" name="wins" type="text" value="{{user.wins}}">
+                <br>                
+                <span class="lbl">Loses</span>
+                <input class="input-box" name="loses" type="text" value="{{user.loses}}">
+                <br>                
+                <span class="lbl">Draws</span>
+                <input class="input-box" name="draws" type="text" value="{{user.draws}}">
                 <input type="hidden" name="id" value="{{user._id}}">
                 <br>
                 <a href="/admin" class="cancel-edit">Cancel</a>
