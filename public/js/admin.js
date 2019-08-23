@@ -1,8 +1,13 @@
 $(document).ready(() => {
+    $("button.edit").click(function () {
+        $("#editid").val($(this).attr("data-id"))
+        $("form#edit").submit()
+    })
+
     $("button.delete").click(function () {
         let id = $(this).attr("data-id");
         $.ajax({
-            url: "delete",
+            url: "deleteuser",
             method: "POST",
             data: {
                 id: $(this).attr("data-id")
@@ -10,7 +15,7 @@ $(document).ready(() => {
             success: function (result) {
                 if (result.ok == 1) {
                     //remove row
-                    $("div[data-id='" + id + "']").remove()
+                    $("tr#" + id ).remove()
                 } else {
                     alert("something went wrong")
                 }
