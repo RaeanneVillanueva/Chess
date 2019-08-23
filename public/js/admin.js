@@ -26,7 +26,7 @@ $(document).ready(() => {
     $("button.deletePuzzle").click(function () {
         let id = $(this).attr("data-id");
         $.ajax({
-            url: "deletepuzzle",
+            url: "/deletepuzzle",
             method: "POST",
             data: {
                 id: $(this).attr("data-id")

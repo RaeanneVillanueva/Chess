@@ -23,6 +23,16 @@ router.get("/", function (req, res) {
     }
 })
 
+router.get("/about", function(req,res){
+    if (!req.session.username) {
+        res.render("index.hbs")
+    } else {
+        res.render("aboutUs", {
+            username: req.session.username
+        })
+    }
+})
+
 router.get("/profile", function (req, res) {
     console.log("GET /profile")
     if (req.session.username) {
@@ -67,13 +77,6 @@ router.get("/admin", function (req, res) {
     }
 })
 
-router.post("/deleteuser", function (req, res) {
-    let id = req.body.id
-    console.log("POST /deleteuser " + id)
-    User.delete(id).then(doc => {
-        res.send(doc)
-    })
-})
 
 router.post("/deletepuzzle", function(req,res){
     let id = req.body.id
