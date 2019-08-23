@@ -76,7 +76,7 @@ div.nav {
     font-weight: lighter;
 }
 
-a:hover {
+.nav-a:hover {
     background: #58AC8A;
 }
 

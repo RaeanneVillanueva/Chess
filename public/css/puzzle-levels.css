@@ -83,6 +83,11 @@ div.nav {
     background: #58AC8A;
 }
 
+.logo {
+    display: flex;
+}
+
+
 .active {
     background-color: #58AC8A;
 }

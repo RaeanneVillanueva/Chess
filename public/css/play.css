@@ -52,6 +52,7 @@ img {
 
 .navbar {
     display: flex;
+    flex-direction: row;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, #58AC8A 120%);
     height: 80px;
     margin: 0 auto;
@@ -92,6 +93,10 @@ h1 {
     color: white;
     font-weight: lighter;
     margin-left: 30px;
+}
+
+.logo {
+    display: flex;
 }
 
 /* ----------------------------------------------- */
