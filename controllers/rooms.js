@@ -85,6 +85,10 @@ router.get("/:room", function (req, res) {
 
             if (rooms[room].ready >= 2) {
                 socket.to(room).broadcast.emit("start-game", req.params.room)
+                // socket.once('disconnect', ()=>{
+                //     socket.to(room).broadcast.emit('user-disconnected', rooms[room].users[socket.id])
+                //     delete rooms[room].users[socket.id]
+                // })
             }
         })
 

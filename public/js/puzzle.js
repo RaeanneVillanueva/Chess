@@ -7,6 +7,8 @@ const game = new Chess(fen)
 console.log(game.validate_fen(fen))
 var counter = 0;
 
+$(".movesleft").text("Moves Left: " + moves)
+
 function onDragStart (source, piece, position, orientation) {
   console.log(game.fen())
   // do not pick up pieces if the game is over
@@ -39,13 +41,14 @@ function onDrop (source, target) {
   if (move === null) return 'snapback'
 
   counter++
-
-  
+  $(".movesleft").text("Moves Left: " + (moves-counter))
+   
   if(counter == moves){
     if(game.game_over()){
       alert("Solved!")
     }else{
       alert("Wrong! Try again")
+      location.reload()
     }
   }
   

@@ -42,7 +42,7 @@ function lozUpdateBestMove() {
     if (!game.game_over())
       drag = true;
     else
-      showEnd();
+      setTimeout(showEnd,1000);
 }
 
 function lozUpdatePV () {
@@ -108,7 +108,7 @@ function onDrop(source, target) {
         engine.postMessage('go movetime ' + movetime);
     }
     else
-      setTimeout(showEnd, 500);
+      setTimeout(showEnd, 1000);
 }
 
 

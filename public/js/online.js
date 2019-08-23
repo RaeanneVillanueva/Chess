@@ -3,6 +3,9 @@ var game = new Chess()
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
 
+window.onbeforeunload = function() {
+  return "Leaving will cause you to lose. Continue?";
+};
 
 function removeGreySquares() {
   $('#onlinechessboard .square-55d63').css('background', '')
