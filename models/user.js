@@ -172,3 +172,15 @@ exports.getElo = function (username) {
         })
     })
 }
+
+exports.getAll = function(){
+    return new Promise(function (resolve, reject){
+        User.find({
+            //all
+        }).then((users)=>{
+            resolve(users)
+        }, (err)=>{
+            reject(err)
+        })
+    })
+}

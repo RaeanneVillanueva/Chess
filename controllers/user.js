@@ -12,15 +12,15 @@ const urlencoder = bodyparser.urlencoded({
 router.use(urlencoder)
 
 // localhost:3000/user/login
-router.get("/login", function(req,res){
+router.get("/login", function (req, res) {
     console.log("GET /user/login")
-    res.render("login",{})
+    res.render("login", {})
 })
 
 // localhost:3000/user/signup
-router.get("/signup", function(req,res){
+router.get("/signup", function (req, res) {
     console.log("GET /user/signup")
-    res.render("signup",{})
+    res.render("signup", {})
 })
 
 
@@ -49,25 +49,30 @@ router.post("/signup", (req, res) => {
 
 router.post("/login", (req, res) => {
     console.log("POST /user/login")
-    let user = {
-        username: req.body.username,
-        password: req.body.password
-    }
-    console.log("post login " + req.body.username)
-    console.log("post login " + user)
+    if (req.body.username == "admin" && req.body.password == "admin") {
+        res.redirect("/admin")
+    } else {
 
-    User.authenticate(user).then((newUser) => {
-        console.log("authenticate " + newUser)
-        if (newUser) {
-            req.session.username = newUser.username
-            req.session.user = newUser
-            res.redirect("/")
+        let user = {
+            username: req.body.username,
+            password: req.body.password
         }
-    }, (error) => {
-        res.render("login", {
-            error
+        console.log("post login " + req.body.username)
+        console.log("post login " + user)
+
+        User.authenticate(user).then((newUser) => {
+            console.log("authenticate " + newUser)
+            if (newUser) {
+                req.session.username = newUser.username
+                req.session.user = newUser
+                res.redirect("/")
+            }
+        }, (error) => {
+            res.render("login", {
+                error
+            })
         })
-    })
+    }
 })
 
 

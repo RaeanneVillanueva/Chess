@@ -30,10 +30,24 @@ exports.edit = function(puzzle){
 
 exports.delete = function(id){
     //deletes a puzzle (not sure if needed)
+    return new Promise(function (resolve, reject) {
+        Puzzle.deleteOne({
+            _id:id
+        },function(err){
+            console.log(err)
+        })
+    })
 }
 
 exports.get = function(id){
     //gets by id
+    return new Promise(function (resolve, reject) {
+        Puzzle.findOne({ _id: id }).then((puzzle) => {
+            resolve(puzzle)
+        }, (err) => {
+            reject(err)
+        })
+    })
 }
 
 exports.getByDifficulty = function(difficulty){

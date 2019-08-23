@@ -1,90 +1,99 @@
 <html>
 
-    <head>
-        <script src="/libraries/jquery.js"></script>
-        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
-        <link rel="stylesheet" href="/css/admin.css">
-        <link rel="stylesheet" href="/libraries/animate.css">
-        <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
+<head>
+    <script src="/libraries/jquery.js"></script>
+    <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/libraries/animate.css">
+    <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
 
-        <title>Chess Game</title>
-    </head>
+    <title>Chess Game</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="navbar">
-            <img src="../img/logo.png" width="40" height="40">
-            <span class="logoname">chess admin</span>
-        </div>
+    <div class="navbar">
+        <img src="../img/logo.png" width="40" height="40">
+        <span class="logoname">chess admin</span>
+    </div>
 
 
-        <div class="mainpage">
-            <div class="tabs">
-                <input id="tab1" type="radio" name="tabs" checked>
-                <label for="tab1">Users</label>
-                <input id="tab2" type="radio" name="tabs">
-                <label for="tab2">Puzzles</label>
-                
-                <div class="content">
-                    <div id="users">
-                       <table class= "users-table">
-                            <thead class="header">
-                                <tr>
-                                    <th>Username</th>
-                                    <th>ELO</th>
-                                    <th>Wins</th>
-                                    <th>Lose</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
+    <div class="mainpage">
+        <div class="tabs">
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1">Users</label>
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2">Puzzles</label>
 
-                            <tbody class="tbl-body">
-                                {{#each user}}
-                                    <tr>
-                                        <td>{{username}}</td>
-                                        <td>{{elo}}</td>
-                                        <td>{{wins}}</td>
-                                        <td>{{lose}}</td>
-                                        <td class="action"><a href="" class="action-btns">Edit</a><a href=""class="action-btns">Delete</button></a>
-                                    </tr>
-                                {{/each}}
-                            </tbody>
-                            
+            <div class="content">
+                <div id="users">
+                    <table class="users-table">
+                        <thead class="header">
+                            <tr>
+                                <th>Username</th>
+                                <th>ELO</th>
+                                <th>Wins</th>
+                                <th>Lose</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
-                       </table>
+                        <tbody class="tbl-body">
+                            {{#each users}}
+                            <tr>
+                                <td>{{username}}</td>
+                                <td>{{elo}}</td>
+                                <td>{{wins}}</td>
+                                <td>{{loses}}</td>
+                                <td class="action">
+                                    <button data-id="{{_id}}" class="action-btns">Edit</button>
+                                    <button class="action-btns" data-id="{{_id}}">Delete</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
 
-                    </div>
-                
-                    <div id="puzzles">
-                        <table class= "puzzles-table">
-                            <thead class="header">
-                                <tr class="header">
-                                    <th>Name</th>
-                                    <th>String</th>
-                                    <th>Difficulty</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
+                    </table>
+                    <form action="edit" method="get" id="edit">
+                        <input type="hidden" id="editid" name="id">
+                    </form>
 
-                            <tbody class="tbl-body">
+                    <form action="delete" method="post" id="delete">
+                        <input type="hidden" id="deleteid" name="id">
+                    </form>
+                </div>
 
-                               {{#each}}
+                <div id="puzzles">
+                    <table class="puzzles-table">
+                        <thead class="header">
+                            <tr class="header">
+                                <th>Name</th>
+                                <th>String</th>
+                                <th>Difficulty</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="tbl-body">
+
+                            {{!-- {{#each}}
                                     <tr>
                                         <td>{{puzzle-name}}</td>
                                         <td>{{string}}</td>
                                         <td>{{difficulty}}</td>
                                         <td class="action"><a href="" class="action-btns">Edit</a><a href=""class="action-btns">Delete</button></a>
                                     </tr>
-                               {{/each}}    
+                               {{/each}}     --}}
 
-                            </tbody>
+                        </tbody>
 
-                        </table>
-                    </div>
+                    </table>
                 </div>
-            
             </div>
-        </div>
 
-    </body>
+        </div>
+    </div>
+
+</body>
+
 </html>

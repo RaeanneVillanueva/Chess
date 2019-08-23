@@ -59,7 +59,7 @@ router.get("/bot", function (req, res) {
 
 router.get("/puzzle", function (req, res) {
     if (req.session.username) {
-        res.render("puzzle-mode", {
+        res.render("puzzle-levels", {
             username: req.session.username
         })
     } else {
