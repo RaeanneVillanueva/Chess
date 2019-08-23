@@ -21,18 +21,18 @@
             
            <div class="edit-div">
                 <div class="header"><span class="label">Add Puzzle</span></div>
-                <form class="input" autocomplete="off">
+                <form action="/addpuzzle" method="Post" class="input" autocomplete="off">
                     <span class="lbl">Name</span>
-                    <input class="input-box" name="username" type="text">
+                    <input class="input-box" name="name" type="text">
                     <br>
-                    <span class="lbl">String</span>
-                    <input class="input-box" name="elo" type="text">
+                    <span class="lbl">FEN</span>
+                    <input class="input-box" name="fen" type="text">
                     <br>
                     <span class="lbl">Difficulty</span>
-                    <input class="input-box" name="wins" type="text">
+                    <input class="input-box" name="difficulty" type="text">
                     <br>
                     <span class="lbl">Moves</span>
-                    <input class="input-box" name="loses" type="text">
+                    <input class="input-box" name="moves" type="text">
 
                     <br>
                     <a href="" class="cancel-edit">Cancel</a>

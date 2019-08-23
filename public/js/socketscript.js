@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000')
+const socket = io('/')
 const roomContainer = $('#roomContainer')
 const readyButton = $("#readyButton")
 //in waiting room

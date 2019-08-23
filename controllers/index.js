@@ -88,6 +88,27 @@ router.post("/deletepuzzle", function(req,res){
 })
 
 
+router.get("/addpuzzle", function(req,res){
+    if(!req.session.admin){
+        res.redirect("/")
+    }else{
+        res.render("add-puzzle")
+    }
+})
+
+router.post("/addpuzzle", function(req,res){
+    var puzzle = {
+        name: req.body.name,
+        fen: req.body.fen,
+        difficulty: req.body.difficulty,
+        moves: req.body.moves
+    }
+
+    Puzzle.create(puzzle).then((puzzle)=>{
+        res.redirect("/admin")
+    })
+})
+
 
 router.get("*", function (req, res) {
     res.send("Quiet out here (・_・) . . . Oh, we didn't find the page you were looking for . . . sorry")
