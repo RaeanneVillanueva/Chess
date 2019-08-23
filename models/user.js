@@ -6,18 +6,19 @@ var userSchema = mongoose.Schema({
     username: {
         type: String,
         unique: true,
-        required: true,
-        minlength: 4
+        required: [true,"Username is required"],
+        minlength: [4, "At least 4 characters required"]
     },
     password: {
         type: String,
-        required: true
+        required: [true, "Password is required"]
     },
     salt: String,
     elo: Number,
     wins: Number,
     loses: Number,
-    draws: Number
+    draws: Number,
+    dateCreated: Date
 })
 
 userSchema.pre("save", function (next) {
@@ -27,6 +28,7 @@ userSchema.pre("save", function (next) {
     this.wins = 0
     this.loses = 0
     this.draws = 0
+    this.date = new Date()
     next()
 })
 
@@ -42,7 +44,8 @@ exports.create = function (user) {
             console.log(newUser)
             resolve(newUser)
         }, (err) => {
-            reject(err)
+            if(err && err.code === 11000) reject(new Error("Username already taken"))
+            else reject(err)
         })
     })
 }

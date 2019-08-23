@@ -110,10 +110,12 @@ router.get("/:room", function (req, res) {
             User.getByUsername(name).then((user)=>{
                 if(win == 1){
                     user.wins++
+                    user.elo+=10
                 }else if(win == 0.5){
                     user.draws++
                 }else{
                     user.loses++
+                    user.elo-=10
                 }
                 User.editByUsername(user).then(user=>{
                     console.log("Updated wins/losses/draws of " + user.username)

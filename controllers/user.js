@@ -111,5 +111,14 @@ router.post("/edituser", function (req, res) {
 })
 
 
+router.post("/deleteuser", function (req, res) {
+    let id = req.body.id
+    console.log("POST /deleteuser " + id)
+    User.delete(id).then(doc => {
+        res.send(doc)
+    })
+})
+
+
 // always remember to export the router for index.js
 module.exports = router

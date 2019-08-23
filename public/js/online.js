@@ -106,7 +106,7 @@ socket.on("move", (move) => {
   console.log("opponent moved " + move)
   game.move(move)
   board.position(game.fen())
-  if (game.game_over()) setTimeout(gameover, 2000)
+  if (game.game_over()) setTimeout(gameover, 500)
 })
 
 function gameover(){
