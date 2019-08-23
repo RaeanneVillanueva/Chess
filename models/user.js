@@ -47,30 +47,61 @@ exports.create = function (user) {
     })
 }
 
-exports.edit = function(newUser){
-    return new Promise(function(resolve, reject){
+exports.editByUsername = function (newUser) {
+    return new Promise(function (resolve, reject) {
         User.findOneAndUpdate({
             username: newUser.username
-        },{
-            $set:{
-                username: newUser.username,
-                password: newUser.password,
-                elo: newUser.elo,
-                wins: newUser.wins,
-                loses: newUser.loses
-            }
-        },{
-            new: true
-        }).then((updatedUser)=>{
-             resolve(updatedUser)
-        }, (err)=>{
-            reject(err)
-        })
+        }, {
+                $set: {
+                    username: newUser.username,
+                    password: newUser.password,
+                    elo: newUser.elo,
+                    wins: newUser.wins,
+                    loses: newUser.loses,
+                    draws: newUser.draws
+                }
+            }, {
+                new: true
+            }).then((updatedUser) => {
+                resolve(updatedUser)
+            }, (err) => {
+                reject(err)
+            })
     })
 }
 
-exports.delete = function(id){
-    //deletes a user (not sure if needed)
+exports.edit = function (id, newUser) {
+    return new Promise(function (resolve, reject) {
+        User.findOneAndUpdate({
+            _id: id
+        }, {
+                $set: {
+                    username: newUser.username,
+                    password: newUser.password,
+                    elo: newUser.elo,
+                    wins: newUser.wins,
+                    loses: newUser.loses,
+                    draws: newUser.draws
+                }
+            }, {
+                new: true
+            }).then((updatedUser) => {
+                resolve(updatedUser)
+            }, (err) => {
+                reject(err)
+            })
+    })
+}
+
+exports.delete = function (id) {
+    //deletes a user
+    return new Promise(function (resolve, reject) {
+        User.deleteOne({
+            _id:id
+        },function(err){
+            console.log(err)
+        })
+    })
 }
 
 exports.authenticate = function (user) {
@@ -130,7 +161,7 @@ exports.getByUsername = function (username) {
     })
 }
 
-exports.getElo = function(username){
+exports.getElo = function (username) {
     return new Promise(function (resolve, reject) {
         User.findOne({
             username: username

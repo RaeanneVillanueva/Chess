@@ -115,7 +115,7 @@ router.get("/:room", function (req, res) {
                 }else{
                     user.loses++
                 }
-                User.edit(user).then(user=>{
+                User.editByUsername(user).then(user=>{
                     console.log("Updated wins/losses/draws of " + user.username)
                 })
             })
