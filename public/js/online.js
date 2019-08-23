@@ -21,8 +21,9 @@ function greySquare(square) {
 
 function onDragStart(source, piece) {
   // do not pick up pieces if the game is over
-  if (game.game_over()) return false
-
+  if (game.game_over()) {
+    return false
+  }
 
   if (location.hash === '#host') {
     if (piece.search(/^b/) !== -1) {
@@ -51,6 +52,7 @@ function onDrop(source, target) {
   else {
     socket.emit("move", room, move)
     console.log("MOVED")
+    if(game.game_over()) gameover()
   }
 }
 
@@ -100,9 +102,21 @@ if (location.hash === "#host") {
   board.orientation('black')
 }
 
-socket.on("move", (move)=>{
-  console.log("opponent moved "+ move)
+socket.on("move", (move) => {
+  console.log("opponent moved " + move)
   game.move(move)
   board.position(game.fen())
+  if (game.game_over()) gameover()
 })
+
+function gameover(){
+  
+    var win = true;
+    if ((board.orientation() == 'white' && game.turn() == 'w' && game.in_checkmate()) ||
+        (board.orientation() == 'black' && game.turn() == 'b' && game.in_checkmate())) {
+      win = false
+    }
+    socket.emit("gameover", name, win)
+  
+}
 

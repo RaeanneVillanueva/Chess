@@ -1,11 +1,18 @@
 const socket = io('http://localhost:3000')
-
 const roomContainer = $('#roomContainer')
 const readyButton = $("#readyButton")
 //in waiting room
 console.log(roomContainer.length)
 
 if (!roomContainer.length) {
+    socket.emit("checkmax")
+
+    socket.on("checkmax", allowed=>{
+        if(!allowed){
+            alert("Full!")
+            window.location.href = "/rooms"
+        }
+    })
     socket.emit("new-user", room, name)
     
     console.log(location.hash === "#host")

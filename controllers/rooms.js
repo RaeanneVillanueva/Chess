@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const bodyparser = require("body-parser")
 const User = require("../models/user")
+const elo = require("../middleware/elo.js")
 
 
 const rooms = {}
@@ -61,6 +62,16 @@ router.get("/:room", function (req, res) {
 
 
     req.app.io.once('connection', function (socket) {
+        socket.on('checkmax', ()=>{
+            if(Object.keys(rooms[req.params.room].users).length < 2){
+                socket.emit("checkmax", true)
+                console.log(true)
+            }else{
+                socket.emit("checkmax", false)
+                console.log(false)
+            }
+        })
+
         socket.once('new-user', (room, name) => {
             socket.join(room)
             rooms[room].users[socket.id] = name
@@ -93,9 +104,20 @@ router.get("/:room", function (req, res) {
 
         socket.on('move', (room, move) => {
             socket.to(room).broadcast.emit("move", move)
-
         })
 
+        socket.on('gameover', function(name, win){
+            User.getByUsername(name).then((user)=>{
+                if(win){
+                    user.wins++
+                }else{
+                    user.loses++
+                }
+                User.edit(user).then(user=>{
+                    console.log("Updated wins/losses")
+                })
+            })
+        })
     })
 })
 

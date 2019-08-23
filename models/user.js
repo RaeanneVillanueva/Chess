@@ -16,7 +16,8 @@ var userSchema = mongoose.Schema({
     salt: String,
     elo: Number,
     wins: Number,
-    loses: Number
+    loses: Number,
+    draws: Number
 })
 
 userSchema.pre("save", function (next) {
@@ -25,6 +26,7 @@ userSchema.pre("save", function (next) {
     this.elo = 1200
     this.wins = 0
     this.loses = 0
+    this.draws = 0
     next()
 })
 
@@ -45,8 +47,26 @@ exports.create = function (user) {
     })
 }
 
-exports.edit = function(user){
-    //edits a user's credentials
+exports.edit = function(newUser){
+    return new Promise(function(resolve, reject){
+        User.findOneAndUpdate({
+            username: newUser.username
+        },{
+            $set:{
+                username: newUser.username,
+                password: newUser.password,
+                elo: newUser.elo,
+                wins: newUser.wins,
+                loses: newUser.loses
+            }
+        },{
+            new: true
+        }).then((updatedUser)=>{
+             resolve(updatedUser)
+        }, (err)=>{
+            reject(err)
+        })
+    })
 }
 
 exports.delete = function(id){
@@ -104,6 +124,18 @@ exports.getByUsername = function (username) {
             username: username
         }).then((user) => {
             resolve(user)
+        }, (err) => {
+            reject(err)
+        })
+    })
+}
+
+exports.getElo = function(username){
+    return new Promise(function (resolve, reject) {
+        User.findOne({
+            username: username
+        }).then((user) => {
+            resolve(user.elo)
         }, (err) => {
             reject(err)
         })
