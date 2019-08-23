@@ -43,7 +43,8 @@ router.get("/profile", function (req, res) {
                 gamesPlayed: user.wins + user.loses + user.draws,
                 wins: user.wins,
                 loses: user.loses,
-                draws: user.draws
+                draws: user.draws,
+                dateCreated: user.dateCreated
             })
         }, (err) => {
             console.log(err)

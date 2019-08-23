@@ -18,7 +18,7 @@ var userSchema = mongoose.Schema({
     wins: Number,
     loses: Number,
     draws: Number,
-    dateCreated: Date
+    dateCreated: String
 })
 
 userSchema.pre("save", function (next) {
@@ -28,7 +28,8 @@ userSchema.pre("save", function (next) {
     this.wins = 0
     this.loses = 0
     this.draws = 0
-    this.date = new Date()
+    var date =  new Date()
+    this.dateCreated = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
     next()
 })
 
