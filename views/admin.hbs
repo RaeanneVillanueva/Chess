@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/libraries/animate.css">
     <link rel="stylesheet" href="/libraries/chessboard-1.0.0.min.css">
-
+    <script src="/js/admin.js"></script>
     <title>Chess Game</title>
 </head>
 
@@ -33,21 +33,23 @@
                                 <th>Username</th>
                                 <th>ELO</th>
                                 <th>Wins</th>
-                                <th>Lose</th>
+                                <th>Loses</th>
+                                <th>Draws</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody class="tbl-body">
                             {{#each users}}
-                            <tr>
+                            <tr id="{{_id}}">
                                 <td>{{username}}</td>
                                 <td>{{elo}}</td>
                                 <td>{{wins}}</td>
                                 <td>{{loses}}</td>
+                                <td>{{draws}}</td>
                                 <td class="action">
-                                    <button data-id="{{_id}}" class="action-btns">Edit</button>
-                                    <button class="action-btns" data-id="{{_id}}">Delete</button>
+                                    <button data-id="{{_id}}" class="action-btns edit">Edit</button>
+                                    <button class="action-btns delete" data-id="{{_id}}">Delete</button>
                                 </td>
                             </tr>
                             {{/each}}
@@ -58,7 +60,7 @@
                         <input type="hidden" id="editid" name="id">
                     </form>
 
-                    <form action="delete" method="post" id="delete">
+                    <form action="deleteuser" method="post" id="delete">
                         <input type="hidden" id="deleteid" name="id">
                     </form>
                 </div>

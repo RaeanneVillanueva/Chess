@@ -77,7 +77,6 @@ exports.edit = function (id, newUser) {
         }, {
                 $set: {
                     username: newUser.username,
-                    password: newUser.password,
                     elo: newUser.elo,
                     wins: newUser.wins,
                     loses: newUser.loses,
@@ -98,8 +97,9 @@ exports.delete = function (id) {
     return new Promise(function (resolve, reject) {
         User.deleteOne({
             _id:id
-        },function(err){
-            console.log(err)
+        },function(err, doc){
+            if(err) console.log(err)
+            else resolve(doc)
         })
     })
 }

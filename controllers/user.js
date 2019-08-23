@@ -51,6 +51,7 @@ router.post("/login", (req, res) => {
     console.log("POST /user/login")
     if (req.body.username == "admin" && req.body.password == "admin") {
         res.redirect("/admin")
+        req.session.admin = true
     } else {
 
         let user = {
