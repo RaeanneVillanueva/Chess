@@ -76,7 +76,7 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
-
+    outline: none;    
 }
 
 .nav-a:hover {
@@ -106,9 +106,6 @@ div.mainpage{
     border-radius: 5px;
     align-items: center;
     justify-content: center;
-
-    /* border: 1px solid red; */
-
 }
 
 div.profile-details{
@@ -118,8 +115,6 @@ div.profile-details{
     position: relative;
     width: 75%;
     height: 100%;
-    
-    /* border: 1px solid blue;  */
 
 }
 
@@ -134,6 +129,7 @@ div.profile-details{
     font-size: 13pt;
     border-radius: 5px;
     cursor: pointer;
+    outline: none;
 }
 
 .settings:hover {
@@ -197,7 +193,6 @@ div.player-info {
     height: 69%;
     border-radius: 10px;
     margin: 0 auto;
-    /* border: 1px solid gray; */
 }
 
 .div-stats {
@@ -206,8 +201,6 @@ div.player-info {
     height: 27%;
     border-radius: 10px;
     margin: 5px;
-
-    /* border: 1px solid yellow; */
 }
 
 .stat {

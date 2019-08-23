@@ -78,6 +78,7 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
+    outline: none;
 }
 
 .nav-a:hover {

@@ -74,6 +74,7 @@ div.nav {
     padding: 30px 40px;
     color: white;
     font-weight: lighter;
+    outline: none;
     float: right;
 
 }
@@ -144,6 +145,7 @@ a.level {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    outline: none;
 }
 
 .puzzle-details {
