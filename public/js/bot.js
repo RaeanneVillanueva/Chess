@@ -1,3 +1,13 @@
+/**
+ * This code was modified and based on the example code in the Github repository:
+ * https://github.com/op12no2/lozza-ui
+ * 
+ * Which is licensed under the GNU General Public License v3.0.
+ * Changes:
+ * - adding grey square functionality in methods removeGreySquares() and greySquare
+ * - commented out pieces of the original code
+ */
+
 var board = null
 var game = new Chess()
 var engine = null
