@@ -6,19 +6,19 @@ var userSchema = mongoose.Schema({
     username: {
         type: String,
         unique: true,
-        required: true,
-        minlength: 4
+        required: [true,"Username is required"],
+        minlength: [4, "At least 4 characters required"]
     },
     password: {
         type: String,
-        required: true
+        required: [true, "Password is required"]
     },
     salt: String,
     elo: Number,
     wins: Number,
     loses: Number,
-    following: [{ type: mongoose.Schema.ObjectId, ref: 'chessuser' }],
-    followers: [{ type: mongoose.Schema.ObjectId, ref: 'chessuser' }],
+    draws: Number,
+    dateCreated: String
 })
 
 userSchema.pre("save", function (next) {
@@ -27,6 +27,9 @@ userSchema.pre("save", function (next) {
     this.elo = 1200
     this.wins = 0
     this.loses = 0
+    this.draws = 0
+    var date =  new Date()
+    this.dateCreated = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
     next()
 })
 
@@ -42,17 +45,67 @@ exports.create = function (user) {
             console.log(newUser)
             resolve(newUser)
         }, (err) => {
-            reject(err)
+            if(err && err.code === 11000) reject(new Error("Username already taken"))
+            else reject(err)
         })
     })
 }
 
-exports.edit = function(user){
-    //edits a user's credentials
+exports.editByUsername = function (newUser) {
+    return new Promise(function (resolve, reject) {
+        User.findOneAndUpdate({
+            username: newUser.username
+        }, {
+                $set: {
+                    username: newUser.username,
+                    password: newUser.password,
+                    elo: newUser.elo,
+                    wins: newUser.wins,
+                    loses: newUser.loses,
+                    draws: newUser.draws
+                }
+            }, {
+                new: true
+            }).then((updatedUser) => {
+                resolve(updatedUser)
+            }, (err) => {
+                reject(err)
+            })
+    })
 }
 
-exports.delete = function(id){
-    //deletes a user (not sure if needed)
+exports.edit = function (id, newUser) {
+    return new Promise(function (resolve, reject) {
+        User.findOneAndUpdate({
+            _id: id
+        }, {
+                $set: {
+                    username: newUser.username,
+                    elo: newUser.elo,
+                    wins: newUser.wins,
+                    loses: newUser.loses,
+                    draws: newUser.draws
+                }
+            }, {
+                new: true
+            }).then((updatedUser) => {
+                resolve(updatedUser)
+            }, (err) => {
+                reject(err)
+            })
+    })
+}
+
+exports.delete = function (id) {
+    //deletes a user
+    return new Promise(function (resolve, reject) {
+        User.deleteOne({
+            _id:id
+        },function(err, doc){
+            if(err) console.log(err)
+            else resolve(doc)
+        })
+    })
 }
 
 exports.authenticate = function (user) {
@@ -103,7 +156,7 @@ exports.get = function (id) {
 exports.getByUsername = function (username) {
     return new Promise(function (resolve, reject) {
         User.findOne({
-            username: user.username
+            username: username
         }).then((user) => {
             resolve(user)
         }, (err) => {
@@ -112,10 +165,26 @@ exports.getByUsername = function (username) {
     })
 }
 
-exports.getFollowers = function(user){
-    //get all followers of the user
+exports.getElo = function (username) {
+    return new Promise(function (resolve, reject) {
+        User.findOne({
+            username: username
+        }).then((user) => {
+            resolve(user.elo)
+        }, (err) => {
+            reject(err)
+        })
+    })
 }
 
-exports.getFollowing = function(user){
-    //get all the people the user is following
+exports.getAll = function(){
+    return new Promise(function (resolve, reject){
+        User.find({
+            //all
+        }).then((users)=>{
+            resolve(users)
+        }, (err)=>{
+            reject(err)
+        })
+    })
 }

@@ -44,7 +44,17 @@ function onDrop (source, target) {
   console.log(board.position('fen'))
   console.log(game.history())
 
-  window.setTimeout(board.flip, 250)
+  window.setTimeout(nextTurn, 250)
+}
+
+function nextTurn(){
+  board.flip()
+  var p1 = $("#p1Name").text()
+  var p2 = $("#p2Name").text()
+
+  $("#p1Name").text(p2)
+  $("#p2Name").text(p1)
+
 }
 
 function onMouseoverSquare (square, piece) {

@@ -14,13 +14,15 @@
 
         <div class="navbar">
             
-            <img class="logo" src="../img/logo.png" width="40" height="40">
-            <span class="logoname">chess</span>
+            <a class="logo" href="/">
+                <img src="/img/logo.png" width="40" height="40">
+                <span class="logoname">chess</span>
+            </a>
             <div class= "nav">
 
                 <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+                <a class="nav-a hvr-grow" href="/about">About Us</a>
                 <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
-                <a class="nav-a hvr-grow" href="/">Home</a>
                 <a class="nav-a active hvr-grow" href="/play">Play</a>
             </div>
         </div>
@@ -33,18 +35,18 @@
             <div class="players">
 
                 <div class="bot">
-                    <img class="bot-img" src="../img/puzzle.png"></img>
+                    <img class="bot-img" src="/img/puzzle.png"></img>
                     <span class="bot-info">Puzzle</span>
                 </div>
 
                 <div class="tools">
                     <div id="btn-newgame" class="tool-btn">
-                        <img src="../img/new-game.png" alt="" class="tool-img">
+                        <img src="/img/new-game.png" alt="" class="tool-img">
                         <span class="tool-lbl">New Game</span>
                     </div>
 
                     <div id="btn-exit" class="tool-btn">
-                        <img src="../img/exit.png" alt="" class="tool-img">
+                        <img src="/img/exit.png" alt="" class="tool-img">
                         <span class="tool-lbl">Exit Room</span>
                     </div>
                 </div>
@@ -52,11 +54,14 @@
 
                 <div class="my-profile">
                     <span class="my-info">{{username}}</span>
-                    <span class="my-info" id="rank">Rank: <span class="opponent-info" id="rank">{{elo}}</span></span>
                 </div>
             </div>
 
         </div>
+        <script>
+            var fen = "{{fen}}"
+            var moves = "{{moves}}"
+        </script>
         <script src="/libraries/chessboard-1.0.0.min.js"></script>
         <script src="/libraries/chess.min.js"></script>
         <script src="/js/puzzle.js"></script>

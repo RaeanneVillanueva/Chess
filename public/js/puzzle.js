@@ -2,9 +2,13 @@
 // https://github.com/jhlywa/chess.js
 
 var board = null
-var game = new Chess('4r3/1R4pp/p2r4/kn2pp2/8/2RNK1P1/1P3P1P/8 w - - 0 1')
+console.log(fen)
+const game = new Chess(fen)
+console.log(game.validate_fen(fen))
+var counter = 0;
 
 function onDragStart (source, piece, position, orientation) {
+  console.log(game.fen())
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
 
@@ -34,6 +38,17 @@ function onDrop (source, target) {
   // illegal move
   if (move === null) return 'snapback'
 
+  counter++
+
+  
+  if(counter == moves){
+    if(game.game_over()){
+      alert("Solved!")
+    }else{
+      alert("Wrong! Try again")
+    }
+  }
+  
   // make random legal move for black
   window.setTimeout(makeRandomMove, 250)
 }
@@ -46,9 +61,10 @@ function onSnapEnd () {
 
 var config = {
   draggable: true,
-  position:'4r3/1R4pp/p2r4/kn2pp2/8/2RNK1P1/1P3P1P/8 w - - 0 1',
+  position: fen,
   onDragStart: onDragStart,
   onDrop: onDrop,
   onSnapEnd: onSnapEnd
 }
+
 board = Chessboard('puzzlechessboard', config)

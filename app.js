@@ -1,16 +1,28 @@
 var express = require("express")
 const bodyparser = require("body-parser")
 const app = express()
+
+var http = require('http').Server(app);
+const io = require("socket.io")(http);
+
+
 const session = require("express-session")
 const urlencoder = bodyparser.urlencoded({
     extended: false
 })
 const cookieparser = require("cookie-parser")
+
 const mongoose = require("mongoose")
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/chessusers", {
+// mongoose.connect("mongodb://localhost:27017/chessusers", {
+//     useNewUrlParser: true
+// })
+
+mongoose.connect("mongodb+srv://raeanne20:1234@cluster0-x83yc.mongodb.net/test?retryWrites=true&w=majority",{
     useNewUrlParser: true
 })
+
+
 app.set("view engine", "hbs")
 app.use(express.static(__dirname + "/public"));
 
@@ -25,12 +37,41 @@ app.use(session({
     }
 }))
 app.use(cookieparser())
-
 app.use(require("./controllers"))
+app.io = io
+// io.on('connection', function (socket) {
+//     console.log(socket.id + " has connected")
 
+//     socket.on('new-user', (room, name) => {
+//         socket.join(room)
+//         rooms[room].users[socket.id] = name
+//         socket.to(room).broadcast.emit('user-connected', name)
+//     })
 
+//     socket.on("send_user_ready", function (data) {
+//         socket.to(room).broadcast.emit("user_ready", { message: message, name: rooms[room].users[socket.id] })
+//     })
 
-app.listen(3000, function (req, res) {
-    console.log("port 3000 is listening...");
+//     socket.on('disconnect', () => {
+//         getUserRooms(socket).forEach(room => {
+//             socket.to(room).broadcast.emit('user-disconnected', rooms[room].users[socket.id])
+//             delete rooms[room].users[socket.id]
+//         })
+//     })
+
+// })
+
+// function getUserRooms(socket) {
+//     return Object.entries(rooms).reduce((names, [name, room]) => {
+//         if (room.users[socket.id] != null) names.push(name)
+//         return names
+//     }, [])
+// }
+
+// http.listen(3000, function (req, res) {
+//     console.log("port 3000 is listening...");
+// })
+
+http.listen(process.env.PORT || 3000, function(){
+    console.log("port 3000 is listening...")
 })
-

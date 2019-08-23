@@ -6,6 +6,7 @@
         <link rel="shortcut icon" type="image/png" href="../img/pagelogo.png">
         <link rel="stylesheet" href="../css/profile.css">
         <link rel="stylesheet" href="../libraries/animate.css">
+        <script src="../js/profile.js"></script>
         <title>Chess Game</title>
     </head>
 
@@ -13,13 +14,16 @@
 
         <div class="navbar">
             
-            <img src="../img/logo.png" width="40" height="40">
-            <span class="logoname">chess</span>
+            <a class="logo" href="/">
+                <img src="/img/logo.png" width="40" height="40">
+                <span class="logoname">chess</span>
+            </a>
+            
             <div class= " nav">
 
                 <a class="nav-a active hvr-grow" href="/profile">{{username}}</a>
+                <a class="nav-a hvr-grow" href="/about">About Us</a>
                 <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
-                <a class="nav-a hvr-grow" href="/">Home</a>
                 <a class="nav-a hvr-grow" href="play">Play</a>
 
             </div>
@@ -32,14 +36,13 @@
                     <img class="profile-img" src="../img/pagelogo.png" alt="">
                     <div class="profile-description">
                         <a class="settings" href="/logout">Log Out</a>                            
-                        <a class="settings" href="">Edit</a>
                         <a class="username">{{username}}</a>
                         <br><br>
                         <span class="details-lbl">Rate: </span>
                         <span class ="detail">{{elo}}</span>
                         <br>
                         <span class="details-lbl">Joined : </span>
-                        <span class="detail">{{dateJoined}}</span>
+                        <span class="detail">{{dateCreated}}</span>
                         <br>
 
                     </div>
@@ -70,38 +73,6 @@
                         </div>
                     </div>
 
-                    <div class="match-history">
-                        <div class="header"><span class="friends-lbl">Match History</span></div>
-                        <div class="matches">
-                            <div class="match"></div>
-                            <div class="match"></div>
-                            <div class="match"></div>
-                            <div class="match"></div>
-                            <div class="match"></div>
-                            <div class="match"></div>
-                            <div class="match"></div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="friends">
-                    <div class="header"><span class="friends-lbl">Following</span></div>
-                    <div class="friends-list">
-
-                        {{!-- para alam mo ano ichura i guess ..  --}}
-                        <a class="friend-profile" href="">
-                            <span>Andrew</span> 
-                            <span class="friend-rank">2001</span>
-                            <span class="invite">Invite</span>
-                        </a>
-                        {{!-- add this code snippet in js(?) everytime you have a new friend
-                            <a class="friend-profile" href="">
-                            <span>{{username of friend}}</span> 
-                            <span class="friend-rank">{{rank of friend}}</span>
-                            <span class="invite">Invite</span>    
-                        </a> --}}
-                    </div>
                 </div>
 
             </div>

@@ -36,7 +36,7 @@ body {
 }
 
 
-img.tool-img, img.logo {
+img.tool-img, .logo-img {
     margin: 0;  
     padding-top: 15px;  
 }
@@ -79,12 +79,17 @@ div.nav {
     font-weight: lighter;
     float: right;
     margin-right: 10px;
-
+    outline: none;
 }
 
 .nav-a:hover {
     background: #58AC8A;
 }
+
+.logo {
+    display: flex;
+}
+
 
 .active {
     background-color: #58AC8A;
@@ -182,6 +187,7 @@ div.tools {
     border-radius: 5px;
     cursor: pointer;
     align-items: center;
+    outline: none;
 }
 
 .tool-btn:hover {

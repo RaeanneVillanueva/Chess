@@ -74,11 +74,17 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
+    outline: none;
 }
 
 .nav-a:hover {
     background: #58AC8A;
 }
+
+.logo {
+    display: flex;
+}
+
 
 .active {
     background-color: #58AC8A;
@@ -137,6 +143,7 @@ div.room-divs {
 }
 
 div.room {
+    position: relative;
     width: 96%;
     height: 100px;
     margin: 10px;
@@ -158,13 +165,13 @@ div.room {
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    width: 85%;
 }
 
 .room-name {
     font-size: 18pt;
     font-weight: bold;
     margin: 10px;
-    
 }
 
 span.created-by {
@@ -184,18 +191,22 @@ a.owner:hover {
 }
 
 a.join {
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
     font-size: 13pt;
-    margin: 5px;
     align-self: center;
     padding: 5px 18px;
-    margin-left: 365px;
     background-color: rgba(162, 224, 115, 0.5);
     border-radius: 10px;
+    outline: none;
+
 }
 
 
 a.join:hover {
     background-color: #58AC8A;
+    font-weight: bold;
 
 }
 
@@ -210,7 +221,7 @@ div.create-room {
 
 }
 
-a.create-btn {
+.create-btn {
     margin: 20px;
     font-size: 13pt;
     margin: 5px;
@@ -218,6 +229,11 @@ a.create-btn {
     padding: 5px 18px;
     background-color: #58AC8A;
     border-radius: 10px;
+    font-family: poiret;
+    color: white;
+    cursor: pointer;
+    outline: none;
+
 }
 
 a.refresh-btn {
@@ -228,8 +244,142 @@ a.refresh-btn {
     padding: 5px 18px;
     background-color: #58AC8A;
     border-radius: 10px;
+    outline: none;
 }
 
-a.refresh-btn:hover, a.create-btn:hover {
+a.refresh-btn:hover, .create-btn:hover {
     background-color: rgba(162, 224, 115, 0.5);
+    font-weight: bold;
+    color: #58AC8A;
+}
+
+.trigger {
+    display: none;
+}
+
+/* ------------------------------------- */
+
+
+.overlay {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    visibility: hidden;
+}
+
+
+.create-form {
+    margin: 5px;
+    width: 39%;
+    height: 45%;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+div.room-name {
+    display: flex;
+    width: 100%;
+    height: 15%;
+    border-radius: 5px;
+    align-content: center;
+    align-items: center;
+    background-color: #78bca1;
+    margin: 0;
+}
+
+.name {
+    font-size: 20pt;
+    padding: 14px;
+}
+
+.input {
+    width: 99%;
+    height: 30%;
+    margin: 2px;
+    padding-top: 50px;
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.6;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.input-box {
+    height: 30px;
+    width: 300px;
+    margin: 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px white solid;
+    outline: none;
+    text-align: center;
+    font-family: poiret;
+    color: white;
+    font-size: 15pt;
+}
+
+
+.create-game {
+    font-family: poiret;
+    font-size: 15pt;
+    color: white;
+
+    padding: 5px 10px;
+    background: rgba(162, 224, 115, 0.7);
+
+    margin-left: 30px;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    outline: none;
+
+}
+
+.cancel-game {
+    font-family: poiret;
+    font-size: 15pt;
+    color: white;
+
+    padding: 5px 30px;
+    background: #58AC8A;
+    background-color: rgba(255, 255, 255, 0.20);
+
+    
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.cancel-game:hover {
+    background:#58AC8A;
+}
+
+.create-game:hover {
+    background:#58AC8A;
+}
+
+
+.trigger:checked + .overlay {
+    visibility: visible;
 }

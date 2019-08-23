@@ -3,11 +3,12 @@ var game = new Chess()
 var whiteSquareGrey = '#a9a9a9'
 var blackSquareGrey = '#696969'
 
-function removeGreySquares () {
+
+function removeGreySquares() {
   $('#onlinechessboard .square-55d63').css('background', '')
 }
 
-function greySquare (square) {
+function greySquare(square) {
   var $square = $('#onlinechessboard .square-' + square)
 
   var background = whiteSquareGrey
@@ -18,18 +19,24 @@ function greySquare (square) {
   $square.css('background', background)
 }
 
-function onDragStart (source, piece) {
+function onDragStart(source, piece) {
   // do not pick up pieces if the game is over
-  if (game.game_over()) return false
-
-  // or if it's not that side's turn
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+  if (game.game_over()) {
     return false
+  }
+
+  if (location.hash === '#host') {
+    if (piece.search(/^b/) !== -1) {
+      return false
+    }
+  } else {
+    if (piece.search(/^w/) !== -1) {
+      return false
+    }
   }
 }
 
-function onDrop (source, target) {
+function onDrop(source, target) {
   removeGreySquares()
 
   // see if the move is legal
@@ -39,13 +46,17 @@ function onDrop (source, target) {
     promotion: 'q' // NOTE: always promote to a queen for example simplicity
   })
 
+
   // illegal move
   if (move === null) return 'snapback'
-  console.log(board.position('fen'))
-  console.log(game.history())
+  else {
+    socket.emit("move", room, move)
+    console.log("MOVED")
+    if(game.game_over()) setTimeout(gameover, 2000)
+  }
 }
 
-function onMouseoverSquare (square, piece) {
+function onMouseoverSquare(square, piece) {
   // get list of possible moves for this square
   var moves = game.moves({
     square: square,
@@ -64,11 +75,11 @@ function onMouseoverSquare (square, piece) {
   }
 }
 
-function onMouseoutSquare (square, piece) {
+function onMouseoutSquare(square, piece) {
   removeGreySquares()
 }
 
-function onSnapEnd () {
+function onSnapEnd() {
   board.position(game.fen())
 }
 
@@ -83,3 +94,40 @@ var config = {
 }
 
 board = Chessboard('onlinechessboard', config)
+// socket.emit("new-user", room)
+
+if (location.hash === "#host") {
+  board.orientation('white')
+} else {
+  board.orientation('black')
+}
+
+socket.on("move", (move) => {
+  console.log("opponent moved " + move)
+  game.move(move)
+  board.position(game.fen())
+  if (game.game_over()) setTimeout(gameover, 500)
+})
+
+function gameover(){
+  
+    var win = 1;
+    if ((board.orientation() == 'white' && game.turn() == 'w' && game.in_checkmate()) ||
+        (board.orientation() == 'black' && game.turn() == 'b' && game.in_checkmate())) {
+      win = 0
+    }else if(game.in_draw() || game.in_stalemate() || game.in_threefold_repetition()){
+      win = 0.5
+    }
+    socket.emit("gameover", name, win)
+    if(win == 1){
+      status = "won"
+    }else if(win == 0.5){
+      status = "drawed"
+    }else{
+      status = "lost"
+    }
+    alert("You " + status)
+}
+
+
+

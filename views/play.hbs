@@ -13,14 +13,17 @@
 
     <div class="navbar">
 
-        <img src="../img/logo.png" width="40" height="40">
-        <span class="logoname">chess</span>
+        <a href="/" class="logo">
+            <img src="../img/logo.png" width="40" height="40">
+            <span class="logoname">chess</span>
+        </a>
+        
         <div class=" nav">
 
             {{!-- <a class="nav-a hvr-grow" href="">{{username}}</a> --}}
             <a class="nav-a hvr-grow" href="/profile">{{username}}</a>
+            <a class="nav-a hvr-grow" href="/about">About Us</a>
             <a class="nav-a hvr-grow" href="/rooms">Rooms</a>
-            <a class="nav-a hvr-grow" href="/">Home</a>
             <a class="nav-a active hvr-grow" href="/play">Play</a>
 
         </div>
@@ -36,7 +39,7 @@
                         you skills here!</p>
                 </div>
             </a>
-            <a href="/play/online">
+            <a href="/rooms">
                 <div id="online" class="mode-div hvr-grow">
                     <div class="mode-img"><img src="../img/chess-online.png" width="151" height="160"></div>
                     <p class="gamemode-label"> Play Chess Online</p>

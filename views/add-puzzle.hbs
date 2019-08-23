@@ -1,0 +1,45 @@
+<html>
+
+    <head>
+        <script src="/libraries/jquery.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+        <link rel="stylesheet" href="/css/add-puzzle.css">
+        <link rel="stylesheet" href="/libraries/animate.css">
+
+        <title>Chess Game</title>
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            <img src="/img/logo.png" width="40" height="40">
+            <span class="logoname">chess admin</span>
+        </div>
+
+
+        <div class="mainpage">
+            
+           <div class="edit-div">
+                <div class="header"><span class="label">Add Puzzle</span></div>
+                <form action="/addpuzzle" method="Post" class="input" autocomplete="off">
+                    <span class="lbl">Name</span>
+                    <input class="input-box" name="name" type="text">
+                    <br>
+                    <span class="lbl">FEN</span>
+                    <input class="input-box" name="fen" type="text">
+                    <br>
+                    <span class="lbl">Difficulty</span>
+                    <input class="input-box" name="difficulty" type="text">
+                    <br>
+                    <span class="lbl">Moves</span>
+                    <input class="input-box" name="moves" type="text">
+
+                    <br>
+                    <a href="" class="cancel-edit">Cancel</a>
+                    <input class="edit" name="submit" type="submit">
+                </form>
+           </div>
+        </div>
+
+    </body>
+</html>

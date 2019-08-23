@@ -19,17 +19,17 @@
     transform: scale(1.1);
   }
 
-a,span {
+a,span, li {
     text-decoration: none;
     color: white;
     font-family: poiret;
+    list-style: none;
 } 
   
 body {
-    display: block;
     align-items: center;
-    justify-content: center;
-    margin: 0;
+    justify-items: center;
+    margin: 0 auto;
     background-color: #e7e1d4;
     background: linear-gradient(180deg, #58AC8A 57.1%, #6CBA84 80.13%, #A2E073 119.48%);
 }
@@ -71,7 +71,6 @@ div.nav {
 }
 
 .nav-a {
-
     font-style: none;
     list-style: none;
     text-decoration: none;
@@ -79,62 +78,62 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
+    outline: none;
 }
 
 .nav-a:hover {
     background: #58AC8A;
 }
 
-.welcome-msg {
-    font-family: poiret;
-    font-weight: lighter;
-    font-size: 30pt;
-    color: white;
-    margin: 20px;
-    margin-left: 240px;
-    padding: 10px;
-}
-
-div.main {
+.logo {
     display: flex;
-    width: 80%;
-    height: 65%;
-    margin: 20px;
-    margin-left: 100px;
-    border-radius: 5px;
-
-    justify-content: center;
-    align-content: center;
 }
 
-div.activities {
-    width: 50%;
-    height: 97%;
-    margin: 5px;
+.sources {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.10);
+    width: 40%;
+    height: 82%;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.10);
-}
-
-div.follow {
-    width: 30%;
-    height: 97%;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.10);
+    
 }
 
 .header {
-    display: flex;
+    background: rgba(255, 255, 255, 0.10);
     width: 100%;
     height: 10%;
     border-radius: 5px;
-    font-size: 13pt;
-    font-weight: bold;
-    align-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.10);
+    display: flex;
+    top: 0px;
+    position: sticky
 }
 
 .label {
+    align-items: center;
     padding: 10px;
+    font-size: 15pt;
+    font-weight: bold;    
+}
+
+.package-list {
+    /* background-color: rgba(255, 255, 255, 0.10); */
+    width: 100%;
+    height: 98%;
+}
+
+li {
+    margin: 6.5px;
+    font-size: 12pt;
+}
+
+.links {
+    font-size: 10pt;
+    color: yellow;
+    margin-left: 30px;
+}
+
+.links:hover {
+    font-weight: bold;
 }

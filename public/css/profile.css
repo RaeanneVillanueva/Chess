@@ -76,12 +76,17 @@ div.nav {
     color: white;
     font-weight: lighter;
     float: right;
-
+    outline: none;    
 }
 
 .nav-a:hover {
     background: #58AC8A;
 }
+
+.logo {
+    display: flex;
+}
+
 
 .active {
     background-color: #58AC8A;
@@ -106,9 +111,6 @@ div.mainpage{
     border-radius: 5px;
     align-items: center;
     justify-content: center;
-
-    /* border: 1px solid red; */
-
 }
 
 div.profile-details{
@@ -119,11 +121,9 @@ div.profile-details{
     width: 75%;
     height: 100%;
 
-    /* border: 1px solid blue;  */
-
 }
 
-a.settings {
+.settings {
     float: right;
     border: none;
     font-family: poiret;
@@ -133,10 +133,11 @@ a.settings {
     padding: 5px 15px;
     font-size: 13pt;
     border-radius: 5px;
-
+    cursor: pointer;
+    outline: none;
 }
 
-a.settings:hover {
+.settings:hover {
     background-color: rgba(162, 224, 115, 0.20);
 }
 
@@ -146,11 +147,6 @@ div.profile-handle {
     height: 130px;
     border-radius: 10px;
     margin: 5px;
-    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, #6ebb83 120%); */
-
-    /* border: 1px solid yellow; */
-
-
 }
 
 .profile-img {
@@ -159,9 +155,7 @@ div.profile-handle {
     padding: 0px;
     margin: 15px;
     border-radius: 10px;
-    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, #6ebb83 120%); */
     background-color: rgba(255, 255, 255, 0.30);
-
 }
 
 div.profile-description {
@@ -198,13 +192,12 @@ span.detail {
 }
 
 div.player-info {
-    display: block;
+    display: flex;
+    flex-direction: row;
     width: 67.5%;
     height: 69%;
     border-radius: 10px;
-    margin-left: 5px;
-
-    /* border: 1px solid gray; */
+    margin: 0 auto;
 }
 
 .div-stats {
@@ -213,8 +206,6 @@ div.player-info {
     height: 27%;
     border-radius: 10px;
     margin: 5px;
-
-    /* border: 1px solid yellow; */
 }
 
 .stat {
@@ -241,50 +232,6 @@ span.stat-count {
     color: white;
 }
 
-div.match-history {
-    width: 97%;
-    height: 71%;
-    margin: 7px;
-    border-radius: 5px;
-
-    background-color: rgba(255, 255, 255, 0.10); 
-    /* border: 1px solid white; */
-}
-
-.matches {
-    width: 100%;
-    height: 87%;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-}
-
-div.match {
-    width: 30%;
-    height: 90%;
-    margin: 5px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.20);
-    flex: 0 0 auto;
-}
-
-div.friends {
-    display: block;
-    width: 30%;
-    height: 69%;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.10); 
-    color: #A2E073;
-    justify-content: center;
-    align-content: center;
-    margin: 7px;
-
-    /* border: 1px solid green; */
-
-}
-
 div.header {
     display: flex;
     width: 100%;
@@ -293,62 +240,4 @@ div.header {
     border-radius: 5px;
     align-content: center;
     align-items: center;
-}
-
-span.friends-lbl {
-    font-family: poiret;
-    font-size: 15pt;
-    font-weight: bolder;
-    color: white;
-    padding: 10px 10px;
-    text-align: left;
-}
-
-div.friends-list {
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    width: 93%;
-    height: 82%;
-    padding: 10px;
-    overflow: auto;
-
-    /* border: 1px solid white; */
-}
-
-div.friend {
-    width: 99%;
-    height: 40px;
-    border: 1px solid white;
-}
-
-a.friend-profile {
-    font-family: poiret;
-    font-size: 15pt;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-}
-
-span.friend-rank {
-    font-size: 8pt;
-    color: lightgray;
-}
-
-span.invite {
-    font-size: 13pt;
-    float: right;
-    visibility: hidden;
-}
-
-.friend-profile:hover .invite {
-    visibility: visible;
-}
-
-.invite:hover {
-    text-decoration: underline;
-}
-
-.friend-profile:hover {
-    background-color: rgba(162, 224, 115, 0.20);
 }
