@@ -1,39 +1,43 @@
 <html>
 
-    <head>
-        <script src="/libraries/jquery.js"></script>
-        <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
-        <link rel="stylesheet" href="/css/edit-user.css">
-        <link rel="stylesheet" href="/libraries/animate.css">
+<head>
+    <script src="/libraries/jquery.js"></script>
+    <link rel="shortcut icon" type="image/png" href="/img/pagelogo.png">
+    <link rel="stylesheet" href="/css/edit-user.css">
+    <link rel="stylesheet" href="/libraries/animate.css">
 
-        <title>Chess Game</title>
-    </head>
+    <title>Chess Game</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="navbar">
-            <img src="/img/logo.png" width="40" height="40">
-            <span class="logoname">chess admin</span>
+    <div class="navbar">
+        <img src="/img/logo.png" width="40" height="40">
+        <span class="logoname">chess admin</span>
+    </div>
+
+
+    <div class="mainpage">
+
+        <div class="edit-div">
+            <div class="header"><span class="label">Edit Data</span></div>
+            <form action="edituser" method="POST" class="input" autocomplete="off">
+                username:
+                <input class="input-box" name="username" type="text" value="{{user.username}}"
+                    placeholder="Edit Username">
+                
+                <input class="input-box" name="elo" type="text" value="{{user.elo}}" placeholder="Change ELO">
+                <input class="input-box" name="wins" type="text" value="{{user.wins}}" placeholder="Change Wins">
+                <input class="input-box" name="loses" type="text" value="{{user.loses}}" placeholder="Change Loses">
+                <input class="input-box" name="draws" type="text" value="{{user.draws}}" placeholder="Change Draws">
+                <input type="hidden" name="id" value="{{user._id}}">
+                <br>
+                <a href="/admin" class="cancel-edit">Cancel</a>
+                <input class="edit" name="submit" type="submit">
+            </form>
         </div>
+    </div>
 
+</body>
 
-        <div class="mainpage">
-            
-           <div class="edit-div">
-                <div class="header"><span class="label">Edit Data</span></div>
-                <form class="input" autocomplete="off">
-                    <input class="input-box" name="username" type="text" placeholder="Edit Username">
-                    <input class="input-box" name="elo" type="text" placeholder="Change ELO">
-                    <input class="input-box" name="wins" type="text" placeholder="Change Wins">
-                    <input class="input-box" name="loses" type="text" placeholder="Change Loses">
-                    <input class="input-box" name="draw" type="text" placeholder="Change Draws">
-
-                    <br>
-                    <a href="" class="cancel-edit">Cancel</a>
-                    <input class="edit" name="submit" type="submit">
-                </form>
-           </div>
-        </div>
-
-    </body>
 </html>

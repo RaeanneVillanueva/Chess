@@ -70,11 +70,13 @@ router.post("/deleteuser", function (req, res) {
     })
 })
 
-router.get("/edit", (req, res) => {
+router.get("/edituser", (req, res) => {
     console.log("GET /getuser " + req.query.id)
     let id = req.query.id
     User.get(id).then(user => {
-        res.render("")
+        res.render("edit-user", {
+            user
+        })
     })
 })
 
@@ -87,16 +89,17 @@ router.post("/edituser", function (req, res) {
     let loses = req.body.loses
     let draws = req.body.draws
 
-    var u = new User({
+    var u = {
         username,
         elo,
         wins,
         loses,
         draws
-    })
+    }
 
     User.edit(id, u).then(user => {
-        console.log("Successfully edited " + user.username)
+        console.log("Successfully edited")
+        res.redirect("/admin")
     })
 })
 

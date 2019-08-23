@@ -31,7 +31,8 @@ router.post("/signup", (req, res) => {
         password: req.body.password,
         elo: 1200,
         wins: 0,
-        loses: 0
+        loses: 0,
+        draws: 0
     }
 
     User.create(user).then((user) => {
@@ -50,8 +51,8 @@ router.post("/signup", (req, res) => {
 router.post("/login", (req, res) => {
     console.log("POST /user/login")
     if (req.body.username == "admin" && req.body.password == "admin") {
-        res.redirect("/admin")
         req.session.admin = true
+        res.redirect("/admin")
     } else {
 
         let user = {
