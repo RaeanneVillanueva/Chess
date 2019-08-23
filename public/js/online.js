@@ -52,7 +52,7 @@ function onDrop(source, target) {
   else {
     socket.emit("move", room, move)
     console.log("MOVED")
-    if(game.game_over()) gameover()
+    if(game.game_over()) setTimeout(gameover, 2000)
   }
 }
 
@@ -106,7 +106,7 @@ socket.on("move", (move) => {
   console.log("opponent moved " + move)
   game.move(move)
   board.position(game.fen())
-  if (game.game_over()) gameover()
+  if (game.game_over()) setTimeout(gameover, 2000)
 })
 
 function gameover(){
@@ -128,4 +128,6 @@ function gameover(){
     }
     alert("You " + status)
 }
+
+
 

@@ -13,6 +13,15 @@ var Puzzle = mongoose.model("puzzle", puzzleSchema)
 
 exports.create = function(puzzle){
     //creates a puzzle
+    return new Promise(function (resolve, reject) {
+        var p = new Puzzle(puzzle)
+
+        u.save().then((newPuzzle) => {
+            resolve(newPuzzle)
+        }, (err) => {
+            reject(err)
+        })
+    })
 }
 
 exports.edit = function(puzzle){
