@@ -108,7 +108,7 @@ function onDrop(source, target) {
         engine.postMessage('go movetime ' + movetime);
     }
     else
-      showEnd();
+      setTimeout(showEnd, 500);
 }
 
 
